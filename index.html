@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+
+<!-- 单行、多行注释             //方式          ：ctrl+k     -->
+<!-- 单行、多行注释及取消       //方式          ：ctrk+q 再按一次取消 -->
+<!-- 区块注释                        / * */方式 ：ctrl+shift+q -->
+<!-- 取消单行、多行、区块注释                   ：ctrl+shift+k -->
+
+<html lang="zh-cn">
+
+<!--时间-->
+    <script>
+        Date.prototype.format = function (fmt) {
+            var o = {
+                "y+": this.getFullYear, //年
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds() //秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+    </script>
+    <div id="dateTime" style="color:white;font-size:22px;font-family: 黑体;"></div>
+
+<!--定时器-->
+ <!-- <script> 旧版轮播图-->  
+        <!-- function init(){ -->
+            <!-- //书写轮播图片的定时功能 -->
+            <!-- setInterval("changeImg()",4000); -->
+        <!-- } -->
+        <!-- //书写函数 -->
+        <!-- var i=0; -->
+        <!-- function changeImg(){ -->
+            <!-- i++; -->
+            <!-- //获取图片位置并设置src属性值 -->
+            <!-- document.getElementById("img1").src="./img/"+i+".jpg"; -->
+            <!-- if(i==5){ -->
+                <!-- i=0; -->
+            <!-- } -->
+        <!-- } -->
+    <!-- </script> -->
+	
+	
+<!-- 网页标题 -->
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+	<!-- 网页标题图标 -->
+	<link rel="icon" href="./img/鹰.svg" type="image/x-icon">
+		<title>木白广木林的个人博客</title>
+	<style>
+		
+	
+		<!-- /* 回到顶部动画 */ -->
+		<!-- #ceshi{ -->
+            <!-- position: fixed; -->
+            <!-- right: 0; -->
+            <!-- bottom: 140px; -->
+            <!-- width: 200px; -->
+            <!-- height: 50px; -->
+            <!-- transition: 2s; -->
+        <!-- } -->
+        <!-- .footer{ -->
+            <!-- font-size: 40px; -->
+            <!-- margin-top: 3300px; -->
+            <!-- color: goldenrod; -->
+        <!-- } -->
+		/* 回到顶部按钮 */
+		/*火箭动态效果*/
+		 .com {
+		  background-image: url("./img/top.png");
+		  position: fixed;
+		  top: 80%;
+		  right: 3%;
+		  width: 150px;
+		  height: 175px;
+		  border-radius: 100%;
+		  display: none;  /*按照距离隐藏*/
+		  z-index: 99;     <!-- 立体度 -->
+    }
+    .com:hover {
+      animation: fly .6s steps(1) infinite; 
+      background-image: url("./img/blbl.png");
+    }
+    @keyframes fly {
+      0% {
+        background-position-x: 0;
+      }
+      
+      25% {
+        background-position-x: -150px;
+      }
+     
+      50% {
+        background-position-x: -300px;
+      }
+      
+      75% {
+        background-position-x: -4500px;
+      }
+      
+      to {
+        background-position-x: -600px;
+      }
+    }
+	
+	
+	 <!-- .goTop{ -->
+            <!-- width: 50px; -->
+            <!-- height: 50px; -->
+            <!-- background-color: #b5bce6; -->
+            <!-- font-size: 20px; -->
+            <!-- text-align: center; -->
+            <!-- line-height: 25px; -->
+            <!-- color: #545bb6; -->
+
+            <!-- position: fixed; -->
+            <!-- bottom: 50px; -->
+            <!-- right: 50px; -->
+            <!-- display: none; -->
+        <!-- } -->
+		
+	
+			<!--导航栏-->
+			li,ul,a,div{
+				border: 0;
+				list-style: none;
+				z-index: 0;
+			}
+			
+			div{
+				display: block;
+				z-index: 0;
+			}
+			
+			a{
+				color: #333333;
+				text-decoration: none;
+				outline: none;
+				z-index: 0;
+			}
+			
+			em{
+				font-weight: normal;
+				z-index: 0;
+			}
+			.ue-bar{
+				background-color: #000000;
+				opacity:0.5;
+				position: sticky;    /*吸顶效果*/
+				top: 0;				 /*吸顶效果*/
+				z-index: 0;
+			}
+			.ue-bar-wrap{
+				width: 61.25rem;
+				height: 4.375rem;
+				margin: 0 auto;
+				overflow: hidden;
+				position: relative;
+				z-index: 0;
+			}
+			.ue-bar-logo{
+				width: 8.375rem ;
+				height: 3.125rem;
+				float: left;
+				padding-right: 0.625rem;
+				padding-top: 0.5rem;
+				z-index: 0;
+			}
+			.ue-bar-logo a{
+				display: inline-block;
+				width: 100%;
+				height: 100;
+				margin-top: 12px;
+				z-index: 0;
+			}
+			
+			.ue-bar-nav{
+				height: 70px;
+				float: left;
+				z-index: 0;
+			}
+			
+			.ue-bar-nav li{
+				height: 70px;
+				float: left;
+				margin-right: 20px;
+				z-index: 0;
+			}
+			
+			.ue-bar-nav li *{
+				color: #dadada;
+				font-size: 14px;
+				display: inline-block;
+				line-height: 17px;
+				vertical-align: top;
+				z-index: 0;
+			}
+			
+			.ue-bar-nav li a{
+				height: 12px;
+				line-height: 22px;
+				padding: 13px 9px;
+				z-index: 0;
+			}
+			
+			.ue-bar-nav li.active{
+				background: #333;
+				z-index: 0;
+			}
+			
+			.ue-bar-nav li a:hover{
+				background: #333;
+				z-index: 0;
+			}
+			
+			
+			
+			/*星星特效背景*/
+			body {
+            background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
+            background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+            background-attachment: fixed;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+            }
+
+            100% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+            }
+        }
+
+        #stars {
+            transform: perspective(500px);
+            transform-style: preserve-3d;
+            position: fixed;
+            perspective-origin: 50% 100%;
+            left: 50%;
+            animation: rotate 66s infinite linear;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .star {
+            width: 2px;
+            height: 2px;
+            background: #f7f7b8;
+            position: fixed;
+            top: 0px;
+            left: 0;
+            backface-visibility: hidden;
+        }
+		
+		
+		.active{
+		style="color:white;"
+		}
+		<!-- 浮动光标 -->
+		.cursor {
+		<!-- width: 100%; -->
+		<!-- height: 100%;  -->
+		position: relative;
+		z-index: 100;
+		}
+		
+</style>
+<script>
+// Text Flag
+// via http://www.javascript-fx.com/mouse_trail/index.html (200X)
+// via fun24.com (defunct, 199X)
+
+function textFlag(options) {
+  let cursorOptions = options || {};
+  let hasWrapperEl = options && options.element;
+  let element = hasWrapperEl || document.body;
+  let text = cursorOptions.text ? " " + options.text : " Your Text Here";
+  let font = cursorOptions.font || "monospace";
+  let textSize = cursorOptions.textSize || 22;
+  let fontFamily = textSize + "px " + font;
+  let gap = cursorOptions.gap || textSize + 2;
+  let angle = 0;
+  let radiusX = 2;
+  let radiusY = 5;
+  let charArray = [];
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let cursor = { x: width / 2, y: width / 2 };
+  for (let i = 0; i < text.length; i++) {
+    charArray[i] = { letter: text.charAt(i), x: width / 2, y: width / 2 };
+  }
+  let canvas, context, animationFrame;
+  const size = options?.size || 3;
+  let cursorsInitted = false;
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+  // Re-initialise or destroy the cursor when the prefers-reduced-motion setting changes
+  prefersReducedMotion.onchange = () => {
+    if (prefersReducedMotion.matches) {
+      destroy();
+    } else {
+      init();
+    }
+  };
+
+  function init() {
+    // Don't show the cursor trail if the user has prefers-reduced-motion enabled
+    if (prefersReducedMotion.matches) {
+      console.log(
+        "This browser has prefers reduced motion turned on, so the cursor did not init"
+      );
+      return false;
+    }
+
+    canvas = document.createElement("canvas");
+    context = canvas.getContext("2d");
+    canvas.style.top = "0px";
+    canvas.style.left = "0px";
+    canvas.style.pointerEvents = "none";
+
+    if (hasWrapperEl) {
+      canvas.style.position = "absolute";
+      element.appendChild(canvas);
+      canvas.width = element.clientWidth;
+      canvas.height = element.clientHeight;
+    } else {
+      canvas.style.position = "fixed";
+      document.body.appendChild(canvas);
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    bindEvents();
+    loop();
+  }
+
+  // Bind events that are needed
+  function bindEvents() {
+    element.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("resize", onWindowResize);
+  }
+
+  function onWindowResize(e) {
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    if (hasWrapperEl) {
+      canvas.width = element.clientWidth;
+      canvas.height = element.clientHeight;
+    } else {
+      canvas.width = width;
+      canvas.height = height;
+    }
+  }
+
+  function onMouseMove(e) {
+    if (hasWrapperEl) {
+      const boundingRect = element.getBoundingClientRect();
+      cursor.x = e.clientX - boundingRect.left;
+      cursor.y = e.clientY - boundingRect.top;
+    } else {
+      cursor.x = e.clientX;
+      cursor.y = e.clientY;
+    }
+  }
+
+  function updateParticles() {
+    context.clearRect(0, 0, width, height);
+
+    angle += 0.15;
+    let locX = radiusX * Math.cos(angle);
+    let locY = radiusY * Math.sin(angle);
+
+    for (let i = charArray.length - 1; i > 0; i--) {
+      charArray[i].x = charArray[i - 1].x + gap;
+      charArray[i].y = charArray[i - 1].y;
+      context.font = fontFamily;
+	  
+	  	  context.fillStyle = "white";  //鼠标文本颜色
+	  
+      context.fillText(charArray[i].letter, charArray[i].x, charArray[i].y);
+    }
+
+    let x1 = charArray[0].x;
+    let y1 = charArray[0].y;
+    x1 += (cursor.x - x1) / 5 + locX + 2;
+    y1 += (cursor.y - y1) / 5 + locY;
+    charArray[0].x = x1;
+    charArray[0].y = y1;
+  }
+
+  function loop() {
+    updateParticles();
+    animationFrame = requestAnimationFrame(loop);
+  }
+
+  function destroy() {
+    canvas.remove();
+    cancelAnimationFrame(animationFrame);
+    element.removeEventListener("mousemove", onMouseMove);
+    window.addEventListener("resize", onWindowResize);
+  }
+
+  init();
+
+  return {
+    destroy: destroy,
+  };
+}
+</script>
+
+</head>
+
+<!--标题轮播图栏-->
+<!-- <body onload="init()"></body> 旧版轮播图-->
+
+<!--回到顶部动画-->
+<!-- <script> -->
+<!-- //这一步是为了防止，点击事件的过度发生。 -->
+<!-- var myTimer = -1; -->
+
+<!-- function back(){ -->
+    <!-- //1、获取当前滚动了多少距离 -->
+    <!-- //2、启动定时器，以一定时间减少响应的滚动距离 -->
+    <!-- var scrollTo = document.documentElement.scrollTop || document.body.scrollTop -->
+    <!-- if(myTimer == -1){ -->
+        <!-- myTimer = setInterval(() => { -->
+            <!-- scrollTo -= 60 -->
+            <!-- if(scrollTo<=0){ -->
+                <!-- scrollTo = 0 -->
+                <!-- window.clearInterval(myTimer) -->
+                <!-- myTimer = -1 -->
+            <!-- } -->
+            
+            <!-- window.scrollTo(0,scrollTo) //这是值  是指离开网页顶部的距离    -->
+        <!-- }, 10); -->
+    <!-- } -->
+<!-- } -->
+<!-- </script> -->
+<!-- <div class="com"> -->
+    <!-- <a id="ceshi" onclick="back()"><img src="./img/111111.png"  title="点击回到顶部"></a> 旧版回到顶部按钮-->
+	<!-- <!-- <div>这是顶部了</div> -->
+    <!-- <!-- <div class="footer">这是尾部了</div> --> 
+    <!-- <!-- <input type="button" id="ceshi" title="点击回到顶部" onclick="back()"> --> 
+    <!-- </div> -->
+	
+ <div class="com" title="点击回到顶部"></div>
+
+    <script>
+        //1.获取元素
+        var com = document.querySelector('.com')
+        //2.绑定滚动事件
+        window.onscroll = function () {
+            //2-1.获取浏览器卷去的高度
+            var height = document.documentElement.scrollTop || document.body.scrollTop
+
+            //2-2. 判断卷去的高度
+            if(height >= 300){
+                //显示
+                com.style.display = 'block'
+            }else {
+                //隐藏
+                com.style.display = 'none'
+            }
+        }
+        //3.绑定点击事件
+        com.onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }
+    </script>
+	
+<!--   图片id不兼容
+	<script type="text/javascript">
+        window.onload = function () {
+            var img1 =document.getElementById("imgid")
+            img1.onmouseover = function () {
+                img1.src="./img/111111.png";
+                    }
+            img1.onmouseout = function () {
+                img1.src="./img/top.png";
+                    }
+            }
+    </script>
+-->
+	
+<!-- 标题栏背景音乐的制作 -->	
+<audio src="music/花海.mp3" autoplay="autoplay" controls="controls" loop="loop" preload="auto" ></audio>
+ <table width="100%" align="center" >
+<body class="cursor">
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+		<!-- 星星特效 -->
+    <div id="stars">
+    </div>
+	 <script>  //鼠标样式
+	new textFlag({ element: document.querySelector("#textFlag"), text: '飘飘姐飘啊飘啊飘啊飘啊飘' })
+	</script>
+    <script>
+        (function () {
+            let starsCount = 520; //星星数量
+            let distance = 800;//间距
+            let parentStarts = document.getElementById("stars");
+            for (let i = 0; i < starsCount; i++) {
+                let childStart = document.createElement("div");
+                childStart.setAttribute("class", 'star');
+                parentStarts.appendChild(childStart);
+            }
+            for (let i = 0; i < starsCount; i++) {
+                let item = parentStarts.children[i];
+                let speed = 0.2 + (Math.random() * 1);
+                let thisDistance = distance + (Math.random() * 300);
+                console.log(parentStarts);
+                item.style.transformOrigin = "0 0 " + thisDistance + "px";
+                item.style.transform = "translate3d(0,0,-" + thisDistance + "px) rotateY(" + (Math.random() * 360) + "deg) rotateX(" + (Math.random() * -50) + "deg) scale(" + speed + "," + speed + ")";
+            }
+        })();
+    </script>
+	
+                <table border="0px" width="100%">
+                    <tr height="50px">
+                        <td width="100%" align="center">
+                            <a href="#" > <font color="	#F08080" size="7" face="comic sans ms" ><strong>BAI GUANG SEN</strong></font></a>
+                        </td>
+                    </tr>
+                </table>
+    </table>
+    <table align="center">
+        <tr height="35" >
+            <td width="100%" align="center" >
+                <!--  <a href="https://space.bilibili.com/15214084?spm_id_from=444.41.0.0"><font color="#F08080"  size="6"><u>你好，我是木白广木林。欢→迎↗光↑临↓!<u/></font></a>  <head>  -->
+				<link rel="stylesheet" href="./css/typing-style.css">
+				</head>
+			<body>
+				<div class="typing" > <a href="https://space.bilibili.com/15214084?spm_id_from=444.41.0.0"><font color="#F08080"  size="6"><u>你好，我是木白广木林。欢→迎↗光↑临↓ !<u/></font></a></div>
+			</body>
+			</td>
+        </tr>
+		
+        <!--轮播图  旧版轮播图-->
+        <!-- <tr> -->
+            <!-- <td> -->
+			<!-- <div align="center"> -->
+                <!-- <img src="./img/1.jpg" id="img1" height="500px" width="700px"/> -->
+			<!-- </div>	 -->
+            <!-- </td> -->
+        <!-- </tr> -->
+    </table>
+</body>
+
+<head>
+    <style>
+        .wrap {
+            width: 700px;
+            height: 600px;
+            position: relative;
+			margin: auto; //居中
+			z-index: -9;
+        }
+        .list {
+            width: 678px;
+            height: 480px;
+            position: relative;
+            padding:10px;
+			//background: rgba(0,0,0,.3);
+			box-shadow: 0 0 15px 10px #CCCCCC; 
+			border-radius:20px;
+			padding-top:0px;
+			padding-bottom:20px;
+			z-index: -9;
+        }
+        .item {
+            width: 700px;
+            height: 500px;
+            list-style: none;
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: all 1.8s;
+			z-index: -9; 
+        }
+        .item.active {
+            z-index: 10;
+            opacity: 1;
+			z-index: -9; 
+        }
+        .btn {
+			opacity:0.5; 
+            width:40px;
+			height:40px;
+            z-index: 100;
+            top: 250px;
+            position: absolute;
+        }
+        #leftBtn {
+            left: -30px;
+			border-radius: 20px;
+			border:1px;
+        }
+        #rightBtn {
+            right: -30px;
+			border-radius: 20px;
+			border:10px;
+        }
+        .pointList {
+            list-style: none;
+            padding-left:10px;
+            position: absolute;
+            right: 20px;
+            bottom: 120px;
+            z-index: -9;
+        }
+        .point {
+            width: 10px;
+            height: 10px;
+            background-color: antiquewhite;
+            border-radius: 100%;
+            float: left;
+            margin-right: 8px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: 	LavenderBlush;
+            cursor: pointer;  
+        }
+        .point.active{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li class="item active"><img src="./img/1.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item"><img src="./img/2.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item"><img src="./img/3.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item"><img src="./img/4.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item"><img src="./img/5.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+        </ul>
+        <ul class="pointList">
+		<div class="title">
+			<h2 style="color:red;">>害羞<</h2>
+		</div>
+            <li class="point active" data-index = 0></li>
+            <li class="point" data-index = 1></li>
+            <li class="point" data-index = 2></li>
+            <li class="point" data-index = 3></li>
+            <li class="point" data-index = 4></li>
+        </ul>
+        <button class="btn" id="leftBtn" style="color:Orchid;">《</button>
+        <button class="btn" id="rightBtn" style="color:Orchid;"> 》 </button>
+ 
+	</div>
+
+    <script>
+        var items = document.querySelectorAll(".item");//图片
+        var points = document.querySelectorAll(".point")//点
+        var left = document.getElementById("leftBtn");
+        var right = document.getElementById("rightBtn");
+        var all = document.querySelector(".wrap")
+        var index = 0;
+        var time = 0;//定时器跳转参数初始化
+        
+ 
+        //清除active方法
+        var clearActive = function () {
+            for (i = 0; i < items.length; i++) {
+                items[i].className = 'item';
+            }
+            for (j = 0; j < points.length; j++) {
+                points[j].className = 'point';
+            }
+        }
+ 
+        //改变active方法
+        var goIndex = function () {
+            clearActive();
+            items[index].className = 'item active';
+            points[index].className = 'point active'
+        }
+        //左按钮事件
+        var goLeft = function () {
+            if (index == 0) {
+                index = 4;
+            } else {
+                index--;
+            }
+            goIndex();
+        }
+ 
+        //右按钮事件
+        var goRight = function () {
+            if (index < 4) {
+                index++;
+            } else {
+                index = 0;
+            }
+            goIndex();
+        }
+        
+ 
+        //绑定点击事件监听
+        left.addEventListener('click', function () {
+            goLeft();
+            time = 0;//计时器跳转清零
+        })
+ 
+        right.addEventListener('click', function () {
+            goRight();
+            time = 0;//计时器跳转清零
+        })
+ 
+        for(i = 0;i < points.length;i++){
+            points[i].addEventListener('click',function(){
+                var pointIndex = this.getAttribute('data-index')
+                index = pointIndex;
+                goIndex();
+                time = 0;//计时器跳转清零
+            })
+        }
+        //计时器
+        var timer;
+        function play(){
+         timer = setInterval(() => {
+            time ++;
+            if(time == 20 ){
+                goRight();
+                time = 0;
+            }    
+        },300)
+    }
+        play();
+        //移入清除计时器
+        all.onmousemove = function(){
+            clearInterval(timer)
+        }
+       //移出启动计时器
+        all.onmouseleave = function(){
+            play();
+        }
+    </script>
+</body>
+ 
+
+
+	
+<!--导航栏-->
+<div class="ue-bar">
+			<div class="ue-bar-wrap">
+				<div class="ue-bar-logo">
+					<a href="#">
+						<img src="./img/h.jpg" 
+						width="55" height="55" alt="hello" title="Hello World"/>
+					</a>
+				</div>
+				<div class="ue-bar-nav">
+					<ul>
+						<li class="active" ><a href="#">
+							<em >首页</em></a></li>
+						<li><a href="#grtc">
+							<em>个人特长</em></a></li>
+							
+						<li><a href="#am">
+							<em>关于本人</em></a></li>
+							
+						<li><a href="#ml">
+							<em>My Life</em></a></li>
+							
+						<li><a href="#jlwj">
+							<em>简历文件</em></a></li>
+							
+						<li><a href="#xlkl">
+							<em>拜个早年</em></a></li>
+							
+						<li><a href="#404">
+							<em>404</em></a></li>
+							
+						<li><a href="#bjxs">
+							<em>灿灿星河</em></a></li>
+							<em></em></a></li>
+							
+						<li><a href="#dqxmb">
+							<em>当前小目标</em></a></li>
+							
+							
+					</ul>
+				</div>
+			</div>
+		</div>
+	</html>
+	
+    <!--个人特长段-->
+	<div id="grtc">
+    <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
+        <tr><th>
+		<font face="comic sans ms" color="white" size="9"><strong>个人特长</strong></font></th></tr><br />
+        <tr>
+            <td align="center" >
+                <div style="height:400px;"><p align="center"><font size="6" face="楷体" color="white">  
+				1、擅长软件的安装与卸载，例如Word、Excel、PPT、Visio等；<br /></p>
+				<p>2、精通单词拼写，例如PE、PS、PR、C/C++、Java等；<br /></p>
+				<p>3、熟悉电脑系统的开关机，主要包括Windows、Linux、Mac、Android、IOS、WP8等系统。<br /></p></font></div>
+            </td>
+        </tr>
+    </table>
+	</div>
+	
+    <!--About Me段-->
+	<div id="am">
+    <table width="100%" cellspacing="20px" cellpadding="20px" align="center">
+        <tr align="center">
+            <td><br /><br /><br />
+                <font face="comic sans ms" color="white" size="9"><strong>关于本人</strong></font><br />
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="2px" cellpadding="6px" align="center">
+        <tr>
+            <td align="center">
+                <p align="center" ><font size="4" face="楷体" color="white">2006年美国周刊年度风云人物&nbsp; &#9813 </font></p>
+            </td>
+            <td align="center">
+                <p align="center" ><font size="4" face="楷体" color="white">2009年年度地球卫士奖&nbsp; &#9813</font></p>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellpadding="2px" cellspacing="6px" align="center">
+        <tr>
+            <td>
+                <p align="center" ><font size="4" face="楷体" color="white">2008年感动中国组委会特别大奖&nbsp; &#9813</font></p>
+            </td>
+			<td align="center">
+                <p align="center" ><font size="4" face="楷体" color="white">2022年奥林匹克杯获得者&nbsp; &#9813</font></p>
+            </td>
+        </tr>
+    </table>
+
+    <table width="140px" cellpadding="10px" cellspacing="10px" align="center">
+        <tr>
+            <td>
+               <img src="./img/a.jpg" align="center" height="400px" width="500px">
+			   <img src="./img/b.jpg" height="400px" width="500px">
+            </td>
+            <td>
+			<p align="center" style="text-indent:2em;"><font size="5" face="楷体" color="white">2006的《时代周刊》年度人物是：You。“You”指的是使用用户分享网站的每一个网民。对此，时代周刊的解释是：“风云人物”是我们每一个人，因为随着博客、网络社区、视频网站的兴起，在2006年因特网发生了重大的转变，网络不再是公共机构或组织，网民正在成长为所谓的“新数字民主主义公民”。</font></p>
+<br> </br>
+<p align="center" style="text-indent:2em;"><font size="5" face="楷体" color="white">2008年感动中国的特别奖授予给全体“中国人”。组委会认为，2008年的中国经历了太多悲怆和喜悦，在抗击暴风雪、抗震救灾、举办奥运会、神七航天员太空漫步等事件中，中国人用坚忍、勇敢、智慧向中国和世界交出了满意的答卷。 </td></font></p>
+        </tr>
+        <tr>
+            <td>
+                <p align="center" style="text-indent:2em;"><font size="5" face="楷体" color="white">2019年9月，联合国宣布支付宝推出的“蚂蚁森林”项目获得2019年“地球卫士奖”。这个大奖是由5亿多人共同完成的，所以称为“联合获奖人”。
+当年，支付宝还为广大参与了“蚂蚁森林”项目的网友发放了“地球卫士勋章”，妥妥的官方认证！</font></p>
+<br> </br>
+ <p align="center" style="text-indent:2em;"><font size="5" face="楷体" color="white">2月19日举行的国际奥委会第139次全会上，国际奥委会主席托马斯·巴赫将“奥林匹克奖杯”授予全体中国人民，以感谢中国人民对于北京冬奥会做出的卓越贡献。
+巴赫在颁奖时说：“如果没有中国人民的支持，北京2022年冬奥会不可能达到如此出色的水平。即使是在闭环中，我们也感受到了中国人民的支持。”奥林匹克奖杯，又名“奥林匹克杯”，是奥林匹克奖项之一，于1906年设立，旨在表彰对奥林匹克运动和国际体育事业做出突出贡献、有良好声誉的团体。</font></p> 
+ </td>
+            <td>
+                  <img src="./img/c.jpg" align="center" height="450px" width="450px">
+				   <img src="./img/d.jpg" align="center" height="300px" width="450px">
+            </td>               
+        </tr>       
+    </table><br /><br />
+	</div>
+	
+    <!--My life段-->
+	<div id="ml">
+    <table width="100%" cellspacing="20px" cellpadding="20px" align="center">
+        <tr align="center">
+            <td><br /><br /><br />
+                <font face="comic sans ms" color="white" size="9"><strong>My life：Sad since  2001</strong></font>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" cellspacing="50px" cellpadding="50px"  align="center">
+        <tr>
+            <td align="center">
+<style>
+.typing {
+    color: white;
+    font-size: 2em;
+	font-family:comic sans ms;
+    width: 20em;
+    height: 1.5em;
+    border-right: 1px solid transparent;
+    animation: typing 5s steps(42, end), blink-caret 1.25s step-end infinite;
+    font-family: Consolas, Monaco;
+    word-break: break-all;
+    overflow: hidden;
+}
+/* 打印效果 */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 20em;
+    }
+}
+
+/* 光标 */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: currentColor;
+    }
+}
+</style>
+         <!-- <div class="typing">“迄今为止的人生都大写着失败，但这不影响我继续向前。”</div> -->
+			  <p align="center" >
+			  <font size="6" face="comic sans ms" color="white">“迄今为止的人生都大写着失败，但这不影响我继续向前。”</font>
+			  </p>
+			 
+            </td>
+        </tr>
+    </table><div style="height:300px"> </div>
+	</div>
+	
+	
+	
+<!--简历文件-->
+	<div id="jlwj">
+    <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
+        <tr><th><font face="comic sans ms" color="white" size="9"><strong>简历预览</strong></font></th></tr><br />
+        <tr>
+            <td align="center">
+                <p align="center" ><font size="6" face="楷体" color="white">
+				<!-- <div class="this-div" onclick="window.location.href='pdf.html'" target="top">\醉后不知天在水 &nbsp; &nbsp; </br > </br > &nbsp; &nbsp; 满船清梦压星河\</div> -->
+				<a class="this-div3" href="pdf.html" target="top">\野花吐芳不择地  </br > &nbsp; &nbsp;幽草吹馥宁只春</br > </br > </br > 兹日纵为无事日 </br >&nbsp;&nbsp; 此身不是自由身\</a>
+				<!-- <a href="pdf.html" title="进入目录" target="top">点我点我</a> -->
+				<!-- <a href="./file/简历.pdf" target="_blank">打开PDF文件</a>直接打开pdf文件 -->
+				<!-- target属性用于控制链接网页打开的位置（相对于当前网页）。默认情况下，是刷新当前网页所在的窗口，加载新的页面。 -->
+				</p>
+				<br />
+            </td>
+        </tr>
+    </table>
+	</div>
+	
+	
+<!--新年快乐-->
+	<div id="xlkl">
+    <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
+        <tr><th><font face="comic sans ms" color="white" size="9"><strong>辞暮尔尔，烟火年年</strong></font></th></tr><br />
+        <tr>
+            <td align="center">
+                <p align="center" ><font size="6" face="楷体" color="white" >  
+				<!-- 提前祝你新年快乐<a href="./newyear/newyear.html" title="" target="top">点我点我</a> -->
+				<a class="this-div3" href="newyear/newyear.html" target="top">山月知我心底事</br > &nbsp; &nbsp;一岁一礼望顺遂</br ></a>
+				<p>
+            </td>
+        </tr>
+    </table>
+	</div>
+	
+<!--404-->
+	<div id="404">
+    <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
+        <tr><th><font face="comic sans ms" color="white" size="9"><strong>404 NOT FOUND!</strong></font></th></tr><br />
+        <tr>
+            <td align="center">
+                <p align="center" ><font size="6" face="楷体" color="white">
+				<!-- <a href="404.html" title="" target="">如果你真的很无聊，点我吧</a> -->
+				<a class="this-div3" href="404.html" target="top">人道洛阳花似锦</br > &nbsp; &nbsp;偏我来时不遇春</br ></a>
+				<!-- 去掉top，配合返回<a href="javascript:history.back(-1)">返回上一页</a> -->
+				</p>
+            </td>
+        </tr>
+    </table>
+	</div>
+	<style>
+.this-div3{
+	background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation:  maskedAnimation 4s infinite linear;
+    font-size: 48px;
+	font-family:FangSong;
+	z-index:9;
+	
+	 word-wrap: break-word;/*英文的时候需要加上这句，自动换行*/ 
+    /*自测了这句话没啥用*/
+    writing-mode: vertical-rl;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
+    writing-mode: tb-rl;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/ 
+    text-align: center;
+    padding-left:50%;
+	padding-top:10px;
+    display:flex;
+    -webkit-display:flex;
+    flex-direction:column; 
+    /* align-content: center; */
+    /* vertical-align: middle; */
+    justify-content:center;           /*竖排排版*/
+}
+@keyframes maskedAnimation {
+	0% {
+    background-position: 0 0;
+	}
+	100% {
+	background-position: -100% 0;
+	}
+}
+</style>
+	
+	
+	
+<!--背景欣赏-->
+<div id="bjxs">
+    <table height="1500px" ><br /><br />
+<div class="this-div" >\醉后不知天在水 &nbsp; &nbsp; </br > </br > &nbsp; &nbsp; 满船清梦压星河\</div>
+<style>
+.this-div{
+	background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation:  maskedAnimation 4s infinite linear;
+    font-size: 58px;
+	font-family:FangSong;
+	z-index:9;
+	
+	 word-wrap: break-word;/*英文的时候需要加上这句，自动换行*/ 
+    /*自测了这句话没啥用*/
+    writing-mode: vertical-rl;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
+    writing-mode: tb-rl;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/ 
+    text-align: center;
+    padding-left:70%;
+	padding-top:110px;
+    display:flex;
+    -webkit-display:flex;
+    flex-direction:column; 
+    /* align-content: center; */
+    /* vertical-align: middle; */
+    justify-content:center;           /*竖排排版*/
+}
+@keyframes maskedAnimation {
+	0% {
+    background-position: 0 0;
+	}
+	100% {
+	background-position: -100% 0;
+	}
+}
+</style>
+    </table>
+	
+	
+	
+	</div>
+	
+	
+<!--当前小目标-->
+<!--字体画线样式
+<span style="text-decoration: line-through">中划线</span>或者<del>钱111111111111111111111111111111</del>
+<head>
+<style type="text/css">
+h1 {text-decoration: overline}
+h2 {text-decoration: line-through}
+h3 {text-decoration: underline}
+h4 {text-decoration:blink}
+</style>
+</head>
+ 
+<body>
+<h1>这是标题 1</h1>
+<h2>这是标题 2</h2>
+<h3>这是标题 3</h3>
+<h4>这是标题 4</h4>
+</body>
+-->
+	<div id="dqxmb">
+    <table width="100%"  height="300px" bgcolor="black" cellpadding="6px" align="center" style="opacity:0.5;z-index: -1;";>
+        <tr>
+            <td align="center">
+                <p align="center" ><font size="7" face="SimSun" color="white">男儿若无凌云志，空负八尺顶天躯</font></p><br /><br />
+				<p align="center" ><font size="4" face="comic sans ms" color="white" style="text-decoration: line-through">Hope my CET4 能过！！</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; 424没过!＼(`Δ’)／!</font></p>
+				<p align="center" ><font size="4" face="comic sans ms" color="white" style="text-decoration: line-through">全款购买汤臣一品别墅一栋</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9745 &nbsp; 已完成</font></p>
+				<p align="center" ><font size="4" face="comic sans ms" color="white" style="text-decoration: line-through">全款买下兰博基尼跑车一辆</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9745 &nbsp; 已完成</font></p>
+				<p align="center" ><font size="4" face="comic sans ms" color="white" >改掉吹牛逼的习惯</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9746 &nbsp; 未完成</font></p><br />
+                <p align="center" ><font color="white">Copyright  &copy; 2022 个人网站. All rights reserved.</font></p>
+            </td>
+        </tr>
+    </table>
+</body>
+</div>
