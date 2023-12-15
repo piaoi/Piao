@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<!-- 单行、多行注释             //方式          ：ctrl+k     -->
-<!-- 单行、多行注释及取消       //方式          ：ctrk+q 再按一次取消 -->
-<!-- 区块注释                        / * */方式 ：ctrl+shift+q -->
-<!-- 取消单行、多行、区块注释                   ：ctrl+shift+k -->
-
-<html lang="zh-cn">
-
+<html lang="zh-CN">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+	<!-- 网页标题改变 -->
+	<script>document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='别走嘛，我会想你的';}else{document.title='回来啦！爱你哟~'}});</script>
+		<title>木白广木林 </title>
+	<!-- 网页标题图标 -->
+	<!-- 如果放在<body></body>之内是无效的要放在<body>之前 -->
+	<link rel="icon" type="image/x-icon" href="./img/gf.png" />
 <!--时间-->
     <script>
         Date.prototype.format = function (fmt) {
@@ -27,52 +29,10 @@
     </script>
     <div id="dateTime" style="color:white;font-size:22px;font-family: 黑体;"></div>
 
-<!--定时器-->
- <!-- <script> 旧版轮播图-->  
-        <!-- function init(){ -->
-            <!-- //书写轮播图片的定时功能 -->
-            <!-- setInterval("changeImg()",4000); -->
-        <!-- } -->
-        <!-- //书写函数 -->
-        <!-- var i=0; -->
-        <!-- function changeImg(){ -->
-            <!-- i++; -->
-            <!-- //获取图片位置并设置src属性值 -->
-            <!-- document.getElementById("img1").src="./img/"+i+".jpg"; -->
-            <!-- if(i==5){ -->
-                <!-- i=0; -->
-            <!-- } -->
-        <!-- } -->
-    <!-- </script> -->
-	
-	
-<!-- 网页标题 -->
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-	<!-- 网页标题图标 -->
-	<link rel="icon" href="./img/鹰.svg" type="image/x-icon">
-		<title>木白广木林的个人博客</title>
+    
 	<style>
 		
-	
-		<!-- /* 回到顶部动画 */ -->
-		<!-- #ceshi{ -->
-            <!-- position: fixed; -->
-            <!-- right: 0; -->
-            <!-- bottom: 140px; -->
-            <!-- width: 200px; -->
-            <!-- height: 50px; -->
-            <!-- transition: 2s; -->
-        <!-- } -->
-        <!-- .footer{ -->
-            <!-- font-size: 40px; -->
-            <!-- margin-top: 3300px; -->
-            <!-- color: goldenrod; -->
-        <!-- } -->
-		/* 回到顶部按钮 */
 		/*火箭动态效果*/
 		 .com {
 		  background-image: url("./img/top.png");
@@ -83,7 +43,8 @@
 		  height: 175px;
 		  border-radius: 100%;
 		  display: none;  /*按照距离隐藏*/
-		  z-index: 99;     <!-- 立体度 -->
+		  z-index: 99;     
+          /* <!-- 立体度 --> */
     }
     .com:hover {
       animation: fly .6s steps(1) infinite; 
@@ -110,24 +71,7 @@
         background-position-x: -600px;
       }
     }
-	
-	
-	 <!-- .goTop{ -->
-            <!-- width: 50px; -->
-            <!-- height: 50px; -->
-            <!-- background-color: #b5bce6; -->
-            <!-- font-size: 20px; -->
-            <!-- text-align: center; -->
-            <!-- line-height: 25px; -->
-            <!-- color: #545bb6; -->
 
-            <!-- position: fixed; -->
-            <!-- bottom: 50px; -->
-            <!-- right: 50px; -->
-            <!-- display: none; -->
-        <!-- } -->
-		
-	
 			<!--导航栏-->
 			li,ul,a,div{
 				border: 0;
@@ -221,8 +165,6 @@
 				z-index: 0;
 			}
 			
-			
-			
 			/*星星特效背景*/
 			body {
             background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
@@ -260,21 +202,22 @@
             left: 0;
             backface-visibility: hidden;
         }
-		
-		
+        
 		.active{
-		style="color:white;"
+		/* style="color:white;" */
+        color: #ffffff;
 		}
-		<!-- 浮动光标 -->
+
+		/* <!-- 浮动光标 --> */
 		.cursor {
-		<!-- width: 100%; -->
-		<!-- height: 100%;  -->
+		/* <!-- width: 100%; -->
+		<!-- height: 100%;  --> */
 		position: relative;
 		z-index: 100;
 		}
 		
 </style>
-<script>
+<script>    //飘动光标
 // Text Flag
 // via http://www.javascript-fx.com/mouse_trail/index.html (200X)
 // via fun24.com (defunct, 199X)
@@ -420,87 +363,14 @@ function textFlag(options) {
 </script>
 
 </head>
-
-<!--标题轮播图栏-->
-<!-- <body onload="init()"></body> 旧版轮播图-->
-
-<!--回到顶部动画-->
-<!-- <script> -->
-<!-- //这一步是为了防止，点击事件的过度发生。 -->
-<!-- var myTimer = -1; -->
-
-<!-- function back(){ -->
-    <!-- //1、获取当前滚动了多少距离 -->
-    <!-- //2、启动定时器，以一定时间减少响应的滚动距离 -->
-    <!-- var scrollTo = document.documentElement.scrollTop || document.body.scrollTop -->
-    <!-- if(myTimer == -1){ -->
-        <!-- myTimer = setInterval(() => { -->
-            <!-- scrollTo -= 60 -->
-            <!-- if(scrollTo<=0){ -->
-                <!-- scrollTo = 0 -->
-                <!-- window.clearInterval(myTimer) -->
-                <!-- myTimer = -1 -->
-            <!-- } -->
-            
-            <!-- window.scrollTo(0,scrollTo) //这是值  是指离开网页顶部的距离    -->
-        <!-- }, 10); -->
-    <!-- } -->
-<!-- } -->
-<!-- </script> -->
-<!-- <div class="com"> -->
-    <!-- <a id="ceshi" onclick="back()"><img src="./img/111111.png"  title="点击回到顶部"></a> 旧版回到顶部按钮-->
-	<!-- <!-- <div>这是顶部了</div> -->
-    <!-- <!-- <div class="footer">这是尾部了</div> --> 
-    <!-- <!-- <input type="button" id="ceshi" title="点击回到顶部" onclick="back()"> --> 
-    <!-- </div> -->
 	
- <div class="com" title="点击回到顶部"></div>
 
-    <script>
-        //1.获取元素
-        var com = document.querySelector('.com')
-        //2.绑定滚动事件
-        window.onscroll = function () {
-            //2-1.获取浏览器卷去的高度
-            var height = document.documentElement.scrollTop || document.body.scrollTop
-
-            //2-2. 判断卷去的高度
-            if(height >= 300){
-                //显示
-                com.style.display = 'block'
-            }else {
-                //隐藏
-                com.style.display = 'none'
-            }
-        }
-        //3.绑定点击事件
-        com.onclick = function () {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            })
-        }
-    </script>
-	
-<!--   图片id不兼容
-	<script type="text/javascript">
-        window.onload = function () {
-            var img1 =document.getElementById("imgid")
-            img1.onmouseover = function () {
-                img1.src="./img/111111.png";
-                    }
-            img1.onmouseout = function () {
-                img1.src="./img/top.png";
-                    }
-            }
-    </script>
--->
 	
 <!-- 标题栏背景音乐的制作 -->	
 <audio src="music/花海.mp3" autoplay="autoplay" controls="controls" loop="loop" preload="auto" ></audio>
  <table width="100%" align="center" >
 <body class="cursor">
-<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+
 		<!-- 星星特效 -->
     <div id="stars">
     </div>
@@ -528,36 +398,31 @@ function textFlag(options) {
         })();
     </script>
 	
-                <table border="0px" width="100%">
-                    <tr height="50px">
-                        <td width="100%" align="center">
-                            <a href="#" > <font color="	#F08080" size="7" face="comic sans ms" ><strong>BAI GUANG SEN</strong></font></a>
-                        </td>
-                    </tr>
-                </table>
-    </table>
-    <table align="center">
-        <tr height="35" >
-            <td width="100%" align="center" >
-                <!--  <a href="https://space.bilibili.com/15214084?spm_id_from=444.41.0.0"><font color="#F08080"  size="6"><u>你好，我是木白广木林。欢→迎↗光↑临↓!<u/></font></a>  <head>  -->
-				<link rel="stylesheet" href="./css/typing-style.css">
-				</head>
-			<body>
-				<div class="typing" > <a href="https://space.bilibili.com/15214084?spm_id_from=444.41.0.0"><font color="#F08080"  size="6"><u>你好，我是木白广木林。欢→迎↗光↑临↓ !<u/></font></a></div>
-			</body>
-			</td>
+    <table border="0px" width="100%">
+        <tr height="50px">
+            <td width="100%" align="center">
+                    <!-- 𝘽𝘼𝙄 ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 𝙔𝙮 -->
+                <a href="#" > <font color="	#F08080" size="7" face="comic sans ms" ><strong>⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 </strong></font></a>
+            </td>
         </tr>
-		
-        <!--轮播图  旧版轮播图-->
-        <!-- <tr> -->
-            <!-- <td> -->
-			<!-- <div align="center"> -->
-                <!-- <img src="./img/1.jpg" id="img1" height="500px" width="700px"/> -->
-			<!-- </div>	 -->
-            <!-- </td> -->
-        <!-- </tr> -->
     </table>
-</body>
+</table>
+<table align="center">
+<tr height="35" >
+<td width="100%" align="center" >
+    <link rel="stylesheet" href="./css/typing-style.css">
+    </head>
+<div>
+    <div class="typing" > <a href="https://space.bilibili.com/15214084?spm_id_from=444.41.0.0">
+    <font color="#F08080"  size="6">
+        <u>你好，我是木白广木林。欢→迎↗光↑临↓ !
+        <u/>
+    </font></a>
+    </div>
+</div>
+</td>
+</tr>
+</table>
 
 <head>
     <style>
@@ -565,7 +430,8 @@ function textFlag(options) {
             width: 700px;
             height: 600px;
             position: relative;
-			margin: auto; //居中
+			margin: auto; 
+            /* //居中 */
 			z-index: -9;
         }
         .list {
@@ -573,7 +439,7 @@ function textFlag(options) {
             height: 480px;
             position: relative;
             padding:10px;
-			//background: rgba(0,0,0,.3);
+			/* //background: rgba(0,0,0,.3); */
 			box-shadow: 0 0 15px 10px #CCCCCC; 
 			border-radius:20px;
 			padding-top:0px;
@@ -642,15 +508,15 @@ function textFlag(options) {
 <body>
     <div class="wrap">
         <ul class="list">
-            <li class="item active"><img src="./img/1.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
-            <li class="item"><img src="./img/2.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
-            <li class="item"><img src="./img/3.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
-            <li class="item"><img src="./img/4.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
-            <li class="item"><img src="./img/5.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item active"><img alt="旋转木马" src="./img/1.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-99;"></li>
+            <li class="item"><img alt="旋转木马" src="./img/2.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item"><img alt="旋转木马" src="./img/3.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item"><img alt="旋转木马" src="./img/4.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
+            <li class="item"><img alt="旋转木马" src="./img/5.jpg" style="width:700px;max-height: 500px;border-radius: 20px;z-index:-9;"></li>
         </ul>
         <ul class="pointList">
 		<div class="title">
-			<h2 style="color:red;">>害羞<</h2>
+			<h2 style="color:rgb(204, 35, 35);"> >害羞< </h2>
 		</div>
             <li class="point active" data-index = 0></li>
             <li class="point" data-index = 1></li>
@@ -751,10 +617,241 @@ function textFlag(options) {
         }
     </script>
 </body>
- 
 
+<div id="box" class="box">
+	<style>
+    .box {
+        opacity: 0;
+        transition: opacity 2s;
+    }
+    .box.show {
+        opacity: 1;
+    }
 
-	
+    .box {
+        position: fixed;
+        /* 让盒子在底部 */
+        bottom: 0;
+        left: 0px;
+        /* 因为要无缝衔接 所以width要设置为100% */
+        width: 100%;
+        /* 图片最高高度 */
+        height: 176px;
+        /* 背景颜色 看效果用的之后要注释掉 */
+        /* <!-- background-color: pink; --> */
+        
+    }
+
+    /* 第一个盒子样式 */
+    .box_noe {
+        position: absolute;
+        bottom: 0;
+        left: -170px;
+        /* 开始的时候我们让他变成透明的 然后动画慢慢的出现 */
+        /* <!-- opacity: 0; --> */
+        /* width要原图/2 分为两份 308/2=154px */
+        width: 154px;
+        /* 高度和图片一样 */
+        height: 121px;
+        /* 盒子要控制位置和移动 */
+        /* 设置动画的总时间,然后要设置一下每一个人的出场顺序 */
+        animation: box_move 16s linear infinite;
+        
+    }
+
+    .one {
+        /* 这个控制背景图片及人物的动画 */
+        width: 154px;
+        height: 121px;
+        background: url(./img/txgc_6d0e9e5.png) no-repeat;
+        overflow: hidden;
+        /* 因为图片只有2个动作所以用步长 用2步完成这个动画 这样人就动了起来*/
+        animation: imgAnimation_one .5s steps(2) infinite;
+        
+    }
+
+    .box_two {
+        position: absolute;
+        bottom: 0;
+        left: -170px;
+        /* width要原图/2 分为两份 308/2=154px*/
+        width: 167px;
+        /* 高度和图片一样 */
+        height: 176px;
+        /* 盒子要控制位置和移动 */
+        animation: box_move 16s linear 2s infinite;
+        z-index: 99
+    }
+
+    .two {
+        /* 这个控制背景图片及人物的动画 */
+        width: 167px;
+        height: 176px;
+        background: url(./img/txgh_fee2457.png) no-repeat;
+        overflow: hidden;
+        /* 因为图片只有2个动作所以用步长 用2步完成这个动画 这样人就动了起来*/
+        animation: imgAnimation_two .5s steps(2) infinite;
+        
+    }
+
+    .box_three {
+        position: absolute;
+        bottom: 0;
+        left: -170px;
+        /* width要原图/2 分为两份 308/2=154px*/
+        width: 161px;
+        /* 高度和图片一样 */
+        height: 149px;
+        /* 盒子要控制位置和移动 */
+        animation: box_move 16s linear 4s infinite;
+        
+    }
+
+    .three {
+        /* 这个控制背景图片及人物的动画 */
+        width: 161px;
+        height: 149px;
+        background: url(./img/txgl_c15cfd8.png) no-repeat;
+        overflow: hidden;
+        /* 因为图片只有2个动作所以用步长 用2步完成这个动画 这样人就动了起来*/
+        animation: imgAnimation_three .5s steps(2) infinite;
+        
+    }
+
+    .box_four {
+        position: absolute;
+        bottom: 0;
+        left: -170px;
+        /* width要原图/2 分为两份 308/2=154px*/
+        width: 171px;
+        /* 高度和图片一样 */
+        height: 157px;
+        /* 盒子要控制位置和移动 */
+        animation: box_move 16s linear 6s infinite;
+        
+    }
+
+    .four {
+        /* 这个控制背景图片及人物的动画 */
+        width: 171px;
+        height: 157px;
+        background: url(./img/txgq_d281c9b.png) no-repeat;
+        overflow: hidden;
+        /* 因为图片只有2个动作所以用步长 用2步完成这个动画 这样人就动了起来*/
+        animation: imgAnimation_four .5s steps(2) infinite;
+        
+    }
+
+    /* 发现所有的图片都是不一样的所以每一个都要有自己单独的动画 */
+    @keyframes imgAnimation_one {
+
+        /* 百分百的时候让图片的背景位置走 */
+        100% {
+            /* 走的必须是整张图片的宽度 这样才可以无限衔接 */
+            background-position: -308px 0;
+        }
+    }
+
+    @keyframes imgAnimation_two {
+
+        /* 百分百的时候让图片的背景位置走 */
+        100% {
+            /* 走的必须是整张图片的宽度 这样才可以无限衔接 */
+            background-position: -334px 0;
+        }
+    }
+
+    @keyframes imgAnimation_three {
+
+        /* 百分百的时候让图片的背景位置走 */
+        100% {
+            /* 走的必须是整张图片的宽度 这样才可以无限衔接 */
+            background-position: -322px 0;
+        }
+    }
+
+    @keyframes imgAnimation_four {
+
+        /* 百分百的时候让图片的背景位置走 */
+        100% {
+            /* 走的必须是整张图片的宽度 这样才可以无限衔接 */
+            background-position: -342px 0;
+        }
+    }
+
+    /* 定义盒子的动画让他们走起来 */
+    @keyframes box_move {
+
+        /* 百分之0的时候 页面上是看不到他们的 */
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+
+            /* 然后走一个屏幕的距离这样就可以无缝衔接了 我的屏幕像素是1920px*1280px */
+            transform: translate(2090px, 0);
+        }
+    }
+</style>
+<script>
+    window.onload = function() {
+        var box = document.getElementById("box");
+        var timer;
+
+        // <!-- function showImage() { -->
+        //     <!-- setTimeout(function() { -->
+        //     <!-- box.classList.add("show"); -->
+        // <!-- }, 3000); -->
+        // <!-- } -->
+
+        // <!-- setTimeout(function() { -->
+        //     <!-- box.classList.add("show"); -->
+        // <!-- }, 6000); -->
+
+        // <!-- 鼠标点击隐藏图片 -->
+        box.addEventListener("click", function() {
+            box.classList.remove("show");
+            // <!-- setTimeout(function() { -->
+            //     <!-- box.classList.add("show"); -->
+            // <!-- }, 6000); -->
+        });
+        
+        // <!-- 鼠标离开后计时器计时，完毕加载图片 -->
+        document.addEventListener("mouseleave", function() {
+            setTimeout(function() {
+            box.classList.add("show");
+        }, 30000);
+        });
+        
+        document.addEventListener("mouseenter", function() {
+            resetTimer();
+            // <!-- box.classList.remove("show"); -->
+            // <!-- 鼠标进入时清空计时器，并隐藏图片 -->
+            box.classList.add("hide");
+        });
+
+        function resetTimer() {
+            clearTimeout(timer);
+            
+        }
+        
+        // <!-- showImage(); -->
+    };
+</script>
+        <div class="box_noe">
+            <div class="one"></div>
+        </div>
+        <div class="box_two">
+            <div class="two"></div>
+        </div>
+        <div class="box_three">
+            <div class="three"></div>
+        </div>
+        <div class="box_four">
+            <div class="four"></div>
+        </div>
+    </div>
+
 <!--导航栏-->
 <div class="ue-bar">
 			<div class="ue-bar-wrap">
@@ -798,7 +895,43 @@ function textFlag(options) {
 				</div>
 			</div>
 		</div>
-	</html>
+
+</html>
+
+
+
+<!-- 回到顶部按钮 -->
+<div class="com" title="点击回到顶部">
+
+
+    <script>
+        //1.获取元素
+        var com = document.querySelector('.com')
+        //2.绑定滚动事件
+        window.onscroll = function () {
+            //2-1.获取浏览器卷去的高度
+            var height = document.documentElement.scrollTop || document.body.scrollTop
+    
+            //2-2. 判断卷去的高度
+            if(height >= 300){
+                //显示
+                com.style.display = 'block'
+            }else {
+                //隐藏
+                com.style.display = 'none'
+            }
+        }
+        //3.绑定点击事件
+        com.onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }
+    </script>
+</div>
+
+
 	
     <!--个人特长段-->
 	<div id="grtc">
@@ -851,8 +984,8 @@ function textFlag(options) {
     <table width="140px" cellpadding="10px" cellspacing="10px" align="center">
         <tr>
             <td>
-               <img src="./img/a.jpg" align="center" height="400px" width="500px">
-			   <img src="./img/b.jpg" height="400px" width="500px">
+               <img alt="旋转木马" src="./img/a.jpg" align="center" height="400px" width="500px">
+			   <img alt="旋转木马" src="./img/b.jpg" height="400px" width="500px">
             </td>
             <td>
 			<p align="center" style="text-indent:2em;"><font size="5" face="楷体" color="white">2006的《时代周刊》年度人物是：You。“You”指的是使用用户分享网站的每一个网民。对此，时代周刊的解释是：“风云人物”是我们每一个人，因为随着博客、网络社区、视频网站的兴起，在2006年因特网发生了重大的转变，网络不再是公共机构或组织，网民正在成长为所谓的“新数字民主主义公民”。</font></p>
@@ -868,8 +1001,8 @@ function textFlag(options) {
 巴赫在颁奖时说：“如果没有中国人民的支持，北京2022年冬奥会不可能达到如此出色的水平。即使是在闭环中，我们也感受到了中国人民的支持。”奥林匹克奖杯，又名“奥林匹克杯”，是奥林匹克奖项之一，于1906年设立，旨在表彰对奥林匹克运动和国际体育事业做出突出贡献、有良好声誉的团体。</font></p> 
  </td>
             <td>
-                  <img src="./img/c.jpg" align="center" height="450px" width="450px">
-				   <img src="./img/d.jpg" align="center" height="300px" width="450px">
+                  <img alt="旋转木马" src="./img/c.jpg" align="center" height="450px" width="450px">
+				   <img alt="旋转木马" src="./img/d.jpg" align="center" height="300px" width="450px">
             </td>               
         </tr>       
     </table><br /><br />
@@ -945,7 +1078,7 @@ function textFlag(options) {
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white">
 				<!-- <div class="this-div" onclick="window.location.href='pdf.html'" target="top">\醉后不知天在水 &nbsp; &nbsp; </br > </br > &nbsp; &nbsp; 满船清梦压星河\</div> -->
-				<a class="this-div3" href="pdf.html" target="top">\野花吐芳不择地  </br > &nbsp; &nbsp;幽草吹馥宁只春</br > </br > </br > 兹日纵为无事日 </br >&nbsp;&nbsp; 此身不是自由身\</a>
+				<a class="this-div3" href="pdf.html" target="top">\野花吐芳不择地</br > &nbsp; &nbsp;幽草吹馥宁只春</br > </br > </br >兹日纵为无事日</br >&nbsp;&nbsp;此身不是自由身\</a>
 				<!-- <a href="pdf.html" title="进入目录" target="top">点我点我</a> -->
 				<!-- <a href="./file/简历.pdf" target="_blank">打开PDF文件</a>直接打开pdf文件 -->
 				<!-- target属性用于控制链接网页打开的位置（相对于当前网页）。默认情况下，是刷新当前网页所在的窗口，加载新的页面。 -->
@@ -980,47 +1113,50 @@ function textFlag(options) {
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white">
 				<!-- <a href="404.html" title="" target="">如果你真的很无聊，点我吧</a> -->
-				<a class="this-div3" href="404.html" target="top">人道洛阳花似锦</br > &nbsp; &nbsp;偏我来时不遇春</br ></a>
-				<!-- 去掉top，配合返回<a href="javascript:history.back(-1)">返回上一页</a> -->
+				<div style="height: 600px;width: 360px;background-color: #75517d;border-radius: 20px;z-index: -50;opacity: .7;">
+                <a class="this-div3" href="404.html" target="top">人道洛阳花似锦</br > &nbsp; &nbsp;偏我来时不遇春</br ></a>
+				</div>
+                <style>
+                    .this-div3{
+                        background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+                        -webkit-text-fill-color: transparent;
+                        -webkit-background-clip: text;
+                        -webkit-background-size: 200% 100%;
+                        -webkit-animation:  maskedAnimation 4s infinite linear;
+                        font-size: 48px;
+                        font-family:FangSong;
+                        z-index:9;
+                        
+                         word-wrap: break-word;/*英文的时候需要加上这句，自动换行*/ 
+                        /*自测了这句话没啥用*/
+                        writing-mode: vertical-rl;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
+                        writing-mode: tb-rl;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/ 
+                        text-align: center;
+                        padding-left:50%;
+                        padding-top:10px;
+                        display:flex;
+                        -webkit-display:flex;
+                        flex-direction:column; 
+                        /* align-content: center; */
+                        /* vertical-align: middle; */
+                        justify-content:center;           /*竖排排版*/
+                    }
+                    @keyframes maskedAnimation {
+                        0% {
+                        background-position: 0 0;
+                        }
+                        100% {
+                        background-position: -100% 0;
+                        }
+                    }
+                    </style></div>
+                <!-- 去掉top，配合返回<a href="javascript:history.back(-1)">返回上一页</a> -->
 				</p>
             </td>
         </tr>
     </table>
 	</div>
-	<style>
-.this-div3{
-	background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-background-size: 200% 100%;
-    -webkit-animation:  maskedAnimation 4s infinite linear;
-    font-size: 48px;
-	font-family:FangSong;
-	z-index:9;
 	
-	 word-wrap: break-word;/*英文的时候需要加上这句，自动换行*/ 
-    /*自测了这句话没啥用*/
-    writing-mode: vertical-rl;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
-    writing-mode: tb-rl;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/ 
-    text-align: center;
-    padding-left:50%;
-	padding-top:10px;
-    display:flex;
-    -webkit-display:flex;
-    flex-direction:column; 
-    /* align-content: center; */
-    /* vertical-align: middle; */
-    justify-content:center;           /*竖排排版*/
-}
-@keyframes maskedAnimation {
-	0% {
-    background-position: 0 0;
-	}
-	100% {
-	background-position: -100% 0;
-	}
-}
-</style>
 	
 	
 	
@@ -1088,7 +1224,7 @@ h4 {text-decoration:blink}
 <h4>这是标题 4</h4>
 </body>
 -->
-	<div id="dqxmb">
+<div id="dqxmb">
     <table width="100%"  height="300px" bgcolor="black" cellpadding="6px" align="center" style="opacity:0.5;z-index: -1;";>
         <tr>
             <td align="center">
@@ -1097,9 +1233,305 @@ h4 {text-decoration:blink}
 				<p align="center" ><font size="4" face="comic sans ms" color="white" style="text-decoration: line-through">全款购买汤臣一品别墅一栋</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9745 &nbsp; 已完成</font></p>
 				<p align="center" ><font size="4" face="comic sans ms" color="white" style="text-decoration: line-through">全款买下兰博基尼跑车一辆</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9745 &nbsp; 已完成</font></p>
 				<p align="center" ><font size="4" face="comic sans ms" color="white" >改掉吹牛逼的习惯</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9746 &nbsp; 未完成</font></p><br />
-                <p align="center" ><font color="white">Copyright  &copy; 2022 个人网站. All rights reserved.</font></p>
+				<!-- 请尊重作者，请务必保留版权 -->
+                <p align="center" ><font color="white">𝘾𝙤𝙥𝙮𝙧𝙞𝙜𝙝𝙩  &copy; 2024  <a style="color:white" href="https://baiguangsen.github.io/Piaopiao/">⎛⎝𝘽𝙔⎠⎞ ✨.</a> 𝘼𝙡𝙡 𝙧𝙞𝙜𝙝𝙩𝙨 𝙧𝙚𝙨𝙚𝙧𝙫𝙚𝙙.<br />𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉. </font></p>
+<!-- 运行时间及授权 -->
+	<div>
+        <div>
+                <p style="color:white">本站<span class="anime-face">艰难地</span>运行：<span id="span_dt_dt"></span>
+				<!-- <p style="text-align:center;padding-top:5px;"></p> -->
+	<script type="text/javascript">
+        // 建站时间统计
+        function show_date_time() {
+            if ("#span_dt_dt".length > 0) {
+                window.setTimeout("show_date_time()", 1000);
+                BirthDay = new Date("02/10/2021 12:00:00");
+                today = new Date();
+                timeold = (today.getTime() - BirthDay.getTime());
+                sectimeold = timeold / 1000;
+                secondsold = Math.floor(sectimeold);
+                msPerDay = 24 * 60 * 60 * 1000;
+                e_daysold = timeold / msPerDay;
+                daysold = Math.floor(e_daysold);
+                e_hrsold = (e_daysold - daysold) * 24;
+                hrsold = Math.floor(e_hrsold);
+                e_minsold = (e_hrsold - hrsold) * 60;
+                minsold = Math.floor((e_hrsold - hrsold) * 60);
+                seconds = Math.floor((e_minsold - minsold) * 60);
+                span_dt_dt.innerHTML = daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+            }
+        }
+
+        show_date_time();
+    </script>
+				</p>
+<style>
+.cover-bg::before{content:'';position:absolute;top:0;bottom:0;left:0;right:0;z-index:3;background-attachment:fixed;background-image:url(./img/grid.png)}
+.cover-bg.fixed{background-attachment: fixed;background-size: cover;background-position: center center;}
+a.post-feature-image{box-shadow: 4px 4px 10px 0px #0008;transition: transform 1s ease 0s;}
+a.post-feature-image:hover {transform: scale(1.2,1.2);}
+.tools-btns{position:fixed;bottom:40px;right:40px;height:40px;width:40px;text-align:center;font-size:0.6rem;color:#FB7299;visibility:visible;z-index:999;}.tools-btns>div{cursor:pointer;transition:all 0.5s;background:#6666;border-radius:25px;}.site-main.no-bg::after{opacity:0!important;}
+.anime-face {
+    animation: anime-face 5s infinite ease-in-out;
+    display: inline-block;
+    margin: 0 5px;
+}
+@-webkit-keyframes anime-face {
+    2%,24%,80% {
+        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
+        transform: translate(0,1.5px) rotate(1.5deg)
+    }
+
+    4%,68%,98% {
+        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
+        transform: translate(0,-1.5px) rotate(-.5deg)
+    }
+
+    38%,6% {
+        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
+        transform: translate(0,1.5px) rotate(-1.5deg)
+    }
+
+    8%,86% {
+        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
+        transform: translate(0,-1.5px) rotate(-1.5deg)
+    }
+
+    10%,72% {
+        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
+        transform: translate(0,2.5px) rotate(1.5deg)
+    }
+
+    12%,64%,78%,96% {
+        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
+        transform: translate(0,-.5px) rotate(1.5deg)
+    }
+
+    14%,54% {
+        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
+        transform: translate(0,-1.5px) rotate(1.5deg)
+    }
+
+    16% {
+        -webkit-transform: translate(0,-.5px) rotate(-1.5deg);
+        transform: translate(0,-.5px) rotate(-1.5deg)
+    }
+
+    18%,22% {
+        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
+        transform: translate(0,.5px) rotate(-1.5deg)
+    }
+
+    20%,36%,46% {
+        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
+        transform: translate(0,-1.5px) rotate(2.5deg)
+    }
+
+    26%,50% {
+        -webkit-transform: translate(0,.5px) rotate(.5deg);
+        transform: translate(0,.5px) rotate(.5deg)
+    }
+
+    28% {
+        -webkit-transform: translate(0,.5px) rotate(1.5deg);
+        transform: translate(0,.5px) rotate(1.5deg)
+    }
+
+    30%,40%,62%,76%,88% {
+        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
+        transform: translate(0,-.5px) rotate(2.5deg)
+    }
+
+    32%,34%,66% {
+        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
+        transform: translate(0,1.5px) rotate(-.5deg)
+    }
+
+    42% {
+        -webkit-transform: translate(0,2.5px) rotate(-1.5deg);
+        transform: translate(0,2.5px) rotate(-1.5deg)
+    }
+
+    44%,70% {
+        -webkit-transform: translate(0,1.5px) rotate(.5deg);
+        transform: translate(0,1.5px) rotate(.5deg)
+    }
+
+    48%,74%,82% {
+        -webkit-transform: translate(0,-.5px) rotate(.5deg);
+        transform: translate(0,-.5px) rotate(.5deg)
+    }
+
+    52%,56%,60% {
+        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
+        transform: translate(0,2.5px) rotate(2.5deg)
+    }
+
+    58% {
+        -webkit-transform: translate(0,.5px) rotate(2.5deg);
+        transform: translate(0,.5px) rotate(2.5deg)
+    }
+
+    84% {
+        -webkit-transform: translate(0,1.5px) rotate(2.5deg);
+        transform: translate(0,1.5px) rotate(2.5deg)
+    }
+
+    90% {
+        -webkit-transform: translate(0,2.5px) rotate(-.5deg);
+        transform: translate(0,2.5px) rotate(-.5deg)
+    }
+
+    92% {
+        -webkit-transform: translate(0,.5px) rotate(-.5deg);
+        transform: translate(0,.5px) rotate(-.5deg)
+    }
+
+    94% {
+        -webkit-transform: translate(0,2.5px) rotate(.5deg);
+        transform: translate(0,2.5px) rotate(.5deg)
+    }
+
+    0%,100% {
+        -webkit-transform: translate(0,0) rotate(0);
+        transform: translate(0,0) rotate(0)
+    }
+}
+
+@keyframes anime-face {
+    2%,24%,80% {
+        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
+        transform: translate(0,1.5px) rotate(1.5deg)
+    }
+
+    4%,68%,98% {
+        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
+        transform: translate(0,-1.5px) rotate(-.5deg)
+    }
+
+    38%,6% {
+        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
+        transform: translate(0,1.5px) rotate(-1.5deg)
+    }
+
+    8%,86% {
+        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
+        transform: translate(0,-1.5px) rotate(-1.5deg)
+    }
+
+    10%,72% {
+        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
+        transform: translate(0,2.5px) rotate(1.5deg)
+    }
+
+    12%,64%,78%,96% {
+        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
+        transform: translate(0,-.5px) rotate(1.5deg)
+    }
+
+    14%,54% {
+        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
+        transform: translate(0,-1.5px) rotate(1.5deg)
+    }
+
+    16% {
+        -webkit-transform: translate(0,-.5px) rotate(-1.5deg);
+        transform: translate(0,-.5px) rotate(-1.5deg)
+    }
+
+    18%,22% {
+        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
+        transform: translate(0,.5px) rotate(-1.5deg)
+    }
+
+    20%,36%,46% {
+        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
+        transform: translate(0,-1.5px) rotate(2.5deg)
+    }
+
+    26%,50% {
+        -webkit-transform: translate(0,.5px) rotate(.5deg);
+        transform: translate(0,.5px) rotate(.5deg)
+    }
+
+    28% {
+        -webkit-transform: translate(0,.5px) rotate(1.5deg);
+        transform: translate(0,.5px) rotate(1.5deg)
+    }
+
+    30%,40%,62%,76%,88% {
+        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
+        transform: translate(0,-.5px) rotate(2.5deg)
+    }
+
+    32%,34%,66% {
+        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
+        transform: translate(0,1.5px) rotate(-.5deg)
+    }
+
+    42% {
+        -webkit-transform: translate(0,2.5px) rotate(-1.5deg);
+        transform: translate(0,2.5px) rotate(-1.5deg)
+    }
+
+    44%,70% {
+        -webkit-transform: translate(0,1.5px) rotate(.5deg);
+        transform: translate(0,1.5px) rotate(.5deg)
+    }
+
+    48%,74%,82% {
+        -webkit-transform: translate(0,-.5px) rotate(.5deg);
+        transform: translate(0,-.5px) rotate(.5deg)
+    }
+
+    52%,56%,60% {
+        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
+        transform: translate(0,2.5px) rotate(2.5deg)
+    }
+
+    58% {
+        -webkit-transform: translate(0,.5px) rotate(2.5deg);
+        transform: translate(0,.5px) rotate(2.5deg)
+    }
+
+    84% {
+        -webkit-transform: translate(0,1.5px) rotate(2.5deg);
+        transform: translate(0,1.5px) rotate(2.5deg)
+    }
+
+    90% {
+        -webkit-transform: translate(0,2.5px) rotate(-.5deg);
+        transform: translate(0,2.5px) rotate(-.5deg)
+    }
+
+    92% {
+        -webkit-transform: translate(0,.5px) rotate(-.5deg);
+        transform: translate(0,.5px) rotate(-.5deg)
+    }
+
+    94% {
+        -webkit-transform: translate(0,2.5px) rotate(.5deg);
+        transform: translate(0,2.5px) rotate(.5deg)
+    }
+
+    0%,100% {
+        -webkit-transform: translate(0,0) rotate(0);
+        transform: translate(0,0) rotate(0)
+    }
+}
+</style>
+            <br>   
+            |
+            <a href="https://www.travellings.cn/go.html" target="blank" title="开往-友链接力"><img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120"></a>
+            |
+        </div>
+    </div>
+	
+	
             </td>
         </tr>
     </table>
-</body>
 </div>
+<footer>
+/
+</footer>
