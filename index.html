@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
+    <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- 音乐播放器样式 -->
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+
 	<!-- 网页标题改变 -->
 	<script>document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='别走嘛，我会想你的';}else{document.title='回来啦！爱你哟~'}});</script>
 		<title>木白广木林 </title>
@@ -29,7 +36,7 @@
     </script>
     <div id="dateTime" style="color:white;font-size:22px;font-family: 黑体;"></div>
 
-<head>
+
     
 	<style>
 		
@@ -38,7 +45,7 @@
 		  background-image: url("./img/top.png");
 		  position: fixed;
 		  top: 80%;
-		  right: 3%;
+		  right: 1%;
 		  width: 150px;
 		  height: 175px;
 		  border-radius: 100%;
@@ -361,16 +368,62 @@ function textFlag(options) {
   };
 }
 </script>
-
 </head>
 	
-
-	
 <!-- 标题栏背景音乐的制作 -->	
-<audio src="music/花海.mp3" autoplay="autoplay" controls="controls" loop="loop" preload="auto" ></audio>
- <table width="100%" align="center" >
-<body class="cursor">
+<!-- <audio src="music/晴天-周杰伦.mp3" autoplay="autoplay" controls="controls" loop="loop" preload="auto" ></audio> -->
+<body>
+    <div id="player">
+        <!-- 歌曲信息模块 -->
+        <div id="player-content1">
+            <!-- 歌曲名 -->
+            <div class="music-name"></div>
+            <!-- 歌手名 -->
+            <div class="artist-name"></div>
+            <!-- 歌曲时间 -->
+            <div class="time">
+                <!-- 当前播放的时间 -->
+                <div class="current-time"></div>
+                <!-- 歌曲总时长 -->
+                <div class="total-time"></div>
+            </div>
+            <!-- 进度条 -->
+            <div id="s-area">
+                <!-- 鼠标移动到进度条上，显示的时间信息 -->
+                <div id="ins-time"></div>
+                <!-- 鼠标移动到进度条上，进度条变暗部分-->
+                <div id="s-hover"></div>
+                <!-- 表示当前歌曲播放进度的蓝色进度条 -->
+                <div id="seek-bar"></div>
+            </div>
+        </div>
 
+        <!-- 控制模块 -->
+        <div id="player-content2">
+            <!-- 左侧歌曲封面旋转模块 -->
+            <div class="music-imgs">
+                <!-- 封面图 -->
+                <div class="img"></div>
+                <!-- 歌曲缓冲时的提示文字 -->
+                <div id="buffer-box">缓冲…</div>
+            </div>
+            <!-- 右侧歌曲操作模块 -->
+            <div class="player-controls">
+                <!-- 上一首按钮 -->
+                <div class="btns prev iconfont">&#xe603;</div>
+                <!-- 暂停/播放 按钮 -->
+                <div class="btns play-pause icon-jiediankaishi iconfont"></div>
+                <!-- 下一首按钮 -->
+                <div class="btns next iconfont">&#xe602;</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+<table width="100%" align="center" >
+<body class="cursor">
 		<!-- 星星特效 -->
     <div id="stars">
     </div>
@@ -398,8 +451,8 @@ function textFlag(options) {
         })();
     </script>
 	
-    <table border="0px" width="100%">
-        <tr height="50px">
+    <table border="0px" width="100%" >
+        <tr height="350px">
             <td width="100%" align="center">
                     <!-- 𝘽𝘼𝙄 ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 𝙔𝙮 -->
                 <a href="#" > <font color="	#F08080" size="7" face="comic sans ms" ><strong>⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 </strong></font></a>
@@ -407,14 +460,14 @@ function textFlag(options) {
         </tr>
     </table>
 </table>
+
 <table align="center">
-<tr height="35" >
+<tr height="260" >
 <td width="100%" align="center" >
-    <link rel="stylesheet" href="./css/typing-style.css">
-    </head>
+    <!-- <link rel="stylesheet" href="./css/typing-style.css"> -->
 <div>
     <div class="typing" > <a href="https://space.bilibili.com/15214084?spm_id_from=444.41.0.0">
-    <font color="#F08080"  size="6">
+    <font style="color: #75517d;"  size="6" >
         <u>你好，我是木白广木林。欢→迎↗光↑临↓ !
         <u/>
     </font></a>
@@ -618,6 +671,7 @@ function textFlag(options) {
     </script>
 </body>
 
+<!-- f4 -->
 <div id="box" class="box">
 	<style>
     .box {
@@ -636,7 +690,8 @@ function textFlag(options) {
         /* 因为要无缝衔接 所以width要设置为100% */
         width: 100%;
         /* 图片最高高度 */
-        height: 176px;
+        /* 可点击区域 */
+        height: 50px;
         /* 背景颜色 看效果用的之后要注释掉 */
         /* <!-- background-color: pink; --> */
         
@@ -820,7 +875,7 @@ function textFlag(options) {
         document.addEventListener("mouseleave", function() {
             setTimeout(function() {
             box.classList.add("show");
-        }, 30000);
+        }, 60000);
         });
         
         document.addEventListener("mouseenter", function() {
@@ -913,7 +968,7 @@ function textFlag(options) {
             var height = document.documentElement.scrollTop || document.body.scrollTop
     
             //2-2. 判断卷去的高度
-            if(height >= 300){
+            if(height >= 800){
                 //显示
                 com.style.display = 'block'
             }else {
@@ -962,10 +1017,10 @@ function textFlag(options) {
     <table width="100%" cellspacing="2px" cellpadding="6px" align="center">
         <tr>
             <td align="center">
-                <p align="center" ><font size="4" face="楷体" color="white">2006年美国周刊年度风云人物&nbsp; &#9813 </font></p>
+                <p align="center" style="font-size: 28px;font-family:楷体;color:white;">2006年美国周刊年度风云人物&nbsp; &#9813</p>
             </td>
             <td align="center">
-                <p align="center" ><font size="4" face="楷体" color="white">2009年年度地球卫士奖&nbsp; &#9813</font></p>
+                <p align="center" style="font-size: 28px;font-family:楷体;color:white;">2009年年度地球卫士奖&nbsp; &#9813</p>
             </td>
         </tr>
     </table>
@@ -973,10 +1028,10 @@ function textFlag(options) {
     <table width="100%" cellpadding="2px" cellspacing="6px" align="center">
         <tr>
             <td>
-                <p align="center" ><font size="4" face="楷体" color="white">2008年感动中国组委会特别大奖&nbsp; &#9813</font></p>
+                <p align="center" style="font-size: 28px;font-family:楷体;color:white;">2008年感动中国组委会特别大奖&nbsp; &#9813</p>
             </td>
 			<td align="center">
-                <p align="center" ><font size="4" face="楷体" color="white">2022年奥林匹克杯获得者&nbsp; &#9813</font></p>
+                <p align="center" style="font-size: 28px;font-family:楷体;color:white;">2022年奥林匹克杯获得者&nbsp; &#9813</p>
             </td>
         </tr>
     </table>
@@ -1171,7 +1226,7 @@ function textFlag(options) {
     -webkit-background-clip: text;
     -webkit-background-size: 200% 100%;
     -webkit-animation:  maskedAnimation 4s infinite linear;
-    font-size: 48px;
+    font-size: 50px;
 	font-family:FangSong;
 	z-index:9;
 	
@@ -1532,3 +1587,6 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
         </tr>
     </table>
 </div>
+<footer>
+/
+</footer>
