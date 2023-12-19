@@ -10,10 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" /> -->
 </head>
 <body>
-<img alt="" src="static/img/01.gif" class="preload">
-<img alt="" src="static/img/02.gif" class="preload">
-<img alt="" src="static/img/03.gif" class="preload">
-<img alt="" src="static/img/04.gif" class="preload">
+<img alt="" src="./static/img/01.gif" class="preload">
+<img alt="" src="./static/img/02.gif" class="preload">
+<img alt="" src="./static/img/03.gif" class="preload">
+<img alt="" src="./static/img/04.gif" class="preload">
 <div id="content">
     <div id='clock-surface' style="z-index: 10;"><img
         src="./static/img/arrow-back-circle-outline.svg"
@@ -40,7 +40,7 @@
 </div>
 <hr/>
 </div>
-<script src="static/js/rocket-loader.min.js" data-cf-settings="faef34276f11a9d5597309ed-|49" defer=""></script>
+<script src="./static/js/rocket-loader.min.js" data-cf-settings="faef34276f11a9d5597309ed-|49" defer=""></script>
 </body>
 </html>
 <script>
@@ -82,7 +82,7 @@
             firstSquish = false;
             audio = audioList[0].cloneNode();
         } else {
-            var random = Math.floor(Math.random() * 7) + 1;
+            var random = Math.floor(Math.random() * 8) + 1;
             audio = audioList[random].cloneNode();
         }
 
@@ -97,7 +97,7 @@
         var counter_button = document.getElementById("counter-button");
         var id = null;
 
-        var random = Math.floor(Math.random() * 5) + 1;
+        var random = Math.floor(Math.random() * 4) + 1;
         var elem = document.createElement("img");
         elem.src = `./static/img/0${random}.gif`;
         elem.style.position = "absolute";
