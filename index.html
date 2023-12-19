@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-18 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2023-12-18 23:51:24
+ * @LastEditTime: 2023-12-19 16:24:51
  * @FilePath: \Index Web\index.html
 -->
 
@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="font/iconfont.css">
     <link rel="stylesheet" href="css/style.css">
 
+
 	<!-- 网页标题改变 -->
 	<script>document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='别走嘛，我会想你的';}else{document.title='回来啦！爱你哟~'}});</script>
 		<title>木白广木林 </title>
@@ -36,89 +37,53 @@
 	<!-- 如果放在body之内是无效的要放在<body>之前 -->
 	<link rel="icon" type="image/x-icon" href="./img/gf.png" />
 
+
     <!-- 加载页面 -->
     <link rel="stylesheet" href="./css/loader.css">
     
-    <div id="background" class="fade-out">
+    <div class="fullscreen" id="fullscreenDiv" >
        <div class="loader"></div>
     </div>
+
     <style>
-    .fade-out {
-    background: linear-gradient(to top,#515c6f,#00348d);
-    /* background-color: #1e4587; */
-    /* 渐变过程 */
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100;
-    /* 渐变消失 */
-    /* -webkit-animation: showtip 1s 1;
-    animation: hidetip 1s 1;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.903); /* 初始颜色为半透明黑色 */
+    /* background: linear-gradient(to top,#515c6f,#00348d); */
+      opacity: 1; /* 初始透明度为1，完全不透明 */
+      transition: opacity 1s ease-in-out; /* 添加渐变效果 */
+      /* pointer-events: none;  */
+      /* 禁止全屏元素接受鼠标事件 */
+      z-index: 101; /* 确保在最上层 */
+      /* overflow: auto;  */
+      /* 启用滚动条 */
     }
-    @keyframes hidetip {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
-    }
-    @-webkit-keyframes hidetip {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      } */
-    } 
-    .fade-out.fade-out-hidden {
-        opacity: 0;
-        z-index: -100;
-    }
+    
     </style>
-    <script src="./js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="./js/jquery-3.4.1.min.js"></script> -->
     <script>
-        //页面加载完成之后隐藏loading
-        // $(window).load(function () {
-        //     $(".loaderbg").hide();
-        // });
+     // 获取全屏元素
+     var fullscreenDiv = document.getElementById('fullscreenDiv');
 
-        //设置页面加载3秒之后隐藏loading
-        // $(function () {
-        //     setTimeout(function () {
-        //     $(".loaderbg").hide();
-        //     alert("页面加载完成啦！");
-        //     },3000);
-        // })
+     // 禁止滚动
+    // fullscreenDiv.style.overflow = 'hidden';
 
-        // jQuery
-        // $(".hideSlow").fadeOut(1000);
-        // $(".hideSlow").fadeTo("1000",0.7);
+    // 3秒后触发渐变消失
+    setTimeout(function() {
+    // fullscreenDiv.style.overflow = 'hidden';
+    fullscreenDiv.style.opacity = '0';
 
-        document.addEventListener("DOMContentLoaded", function(event) {
-        var element = document.getElementById("background");
-        // 检查 session storage 中的状态
-        var hasTransition = sessionStorage.getItem("hasTransition");
-
-        
-        // 3秒后添加 class 来触发淡出效果
-        setTimeout(function() {
-            element.classList.add("fade-out-hidden");
-        }, 2000);
-
+    // 在动画结束后，将全屏元素移除或隐藏
+    fullscreenDiv.addEventListener('transitionend', function() {
+        fullscreenDiv.style.display = 'none'; // 隐藏全屏元素
     });
+    }, 2500);
+
     </script>
-
-
-
-
 
 
 <!--时间-->
@@ -421,6 +386,7 @@
 </div>
 
     
+<!-- 音乐播放器样式 -->
 <div id="main">
     <body >
         <div id="player">
@@ -471,7 +437,7 @@
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/index.js"></script>
     </body>
-<h2>Open/Collapse Sidebar on Hover</h2>
+  <h2>Open/Collapse Sidebar on Hover</h2>
   <p>Hover over any part of the sidebar to open the it.</p>
   <p>To close the sidebar, move your mouse out of the sidebar.</p>
 </div>
