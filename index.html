@@ -1,10 +1,27 @@
+<!--
+ * @Author: 木白广木林
+ * @Date: 2023-12-18 15:15:14
+ * @LastEditors: Do not edit
+ * @LastEditTime: 2023-12-18 23:51:24
+ * @FilePath: \Index Web\index.html
+-->
+
 <!DOCTYPE html>
 
 <html lang="zh-CN">
     <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <!-- 清除缓存 -->
+    <!-- 在HTML的head标签里添加如下代码即可 --->
+    <!-- <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache"> -->
+    <!-- // An highlighted block -->
+    <meta http-equiv="Cache-Control,X-UA-Compatible" content="ie=edge,no-cache, no-store, must-revalidate" />
 
     <!-- 音乐播放器样式 -->
     <link rel="stylesheet" href="font/iconfont.css">
@@ -13,11 +30,99 @@
 	<!-- 网页标题改变 -->
 	<script>document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='别走嘛，我会想你的';}else{document.title='回来啦！爱你哟~'}});</script>
 		<title>木白广木林 </title>
+    
+
 	<!-- 网页标题图标 -->
-	<!-- 如果放在<body></body>之内是无效的要放在<body>之前 -->
+	<!-- 如果放在body之内是无效的要放在<body>之前 -->
 	<link rel="icon" type="image/x-icon" href="./img/gf.png" />
-<!--时间-->
+
+    <!-- 加载页面 -->
+    <link rel="stylesheet" href="./css/loader.css">
+    
+    <div id="background" class="fade-out">
+       <div class="loader"></div>
+    </div>
+    <style>
+    .fade-out {
+    background: linear-gradient(to top,#515c6f,#00348d);
+    /* background-color: #1e4587; */
+    /* 渐变过程 */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    /* 渐变消失 */
+    /* -webkit-animation: showtip 1s 1;
+    animation: hidetip 1s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    }
+    @keyframes hidetip {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes hidetip {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      } */
+    } 
+    .fade-out.fade-out-hidden {
+        opacity: 0;
+        z-index: -100;
+    }
+    </style>
+    <script src="./js/jquery-3.4.1.min.js"></script>
     <script>
+        //页面加载完成之后隐藏loading
+        // $(window).load(function () {
+        //     $(".loaderbg").hide();
+        // });
+
+        //设置页面加载3秒之后隐藏loading
+        // $(function () {
+        //     setTimeout(function () {
+        //     $(".loaderbg").hide();
+        //     alert("页面加载完成啦！");
+        //     },3000);
+        // })
+
+        // jQuery
+        // $(".hideSlow").fadeOut(1000);
+        // $(".hideSlow").fadeTo("1000",0.7);
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+        var element = document.getElementById("background");
+        // 检查 session storage 中的状态
+        var hasTransition = sessionStorage.getItem("hasTransition");
+
+        
+        // 3秒后添加 class 来触发淡出效果
+        setTimeout(function() {
+            element.classList.add("fade-out-hidden");
+        }, 2000);
+
+    });
+    </script>
+
+
+
+
+
+
+<!--时间-->
+    <!-- <script>
         Date.prototype.format = function (fmt) {
             var o = {
                 "y+": this.getFullYear, //年
@@ -34,10 +139,345 @@
         }
         setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
     </script>
-    <div id="dateTime" style="color:white;font-size:22px;font-family: 黑体;"></div>
+    <div id="dateTime" style="color:white;font-size:22px;font-family: 黑体;"></div> -->
+    
 
+<!-- 侧边栏 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+
+  <!-- <a href="./nixie.html"><i class="material-icons">info</i><span class="icon-text">辉光管(Nixie tube) -->
+  <a href="./nixie.html">
+    <span class="icon-text"><img alt="" src="./img/logo-tableau.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;">
+    辉光管(Nixie tube)
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <style>
+
+        #clock-surface {
+            position: relative;
+            margin-left: 5px;
+            top: 15px;
+            left: 45px;
+            padding-bottom: 35px;
+            /* width: 100%; */
+            /* text-align:left; */
+        }
+
+        .nixie-container {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            margin: 0 10px;
+        }
+
+        .nixie-background {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+        }
+
+        .nixie-background.active {
+            /* background-color: rgba(255, 189, 23, 0.1); */
+            -webkit-filter: blur(25px);
+            -ms-filter: blur(25px);
+            -moz-filter: blur(25px);
+            filter:blur(50px);
+        }
+
+        .nixie-container .nixie-number {
+            /* 单个数字 */
+            display: block;
+            position: absolute;
+            width: 30px;
+        }
+
+        .nixie-number .nixie-number-part {
+            fill: none;
+            stroke: rgba(86, 43, 43, 0.418);
+            /* 字体宽度 */
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+        }
+
+        .nixie-number.active .nixie-number-part {
+            /* stroke: #ff5900; */
+            stroke: #ff4d00;
+
+        }
+
+        .white-space {
+            /* 间隙 */
+            display: inline-block;
+            width: 10px;
+        }
+    </style>
+<script>
+    $(document).ready(function () {
+        initializeNixieTube(6, 2);
+        update();
+
+        setInterval("update()", 1000);
+    });
+
+    function initializeNixieTube(number, whiteSpaceSpan) {
+        var template = $('#nixietube-template').html();
+        var targetHTML = "";
+        var whiteSpace = "<div class='white-space'></div>";
+        var CurrentTubeNumber = 0;
+        while (CurrentTubeNumber < number) {
+            if (whiteSpaceSpan > 0) {
+                if (CurrentTubeNumber % whiteSpaceSpan == 0 && CurrentTubeNumber > 0)
+                    $('#clock-surface').append(whiteSpace);
+            }
+            targetHTML = template.replace("[order]", CurrentTubeNumber);
+            $('#clock-surface').append(targetHTML);
+            CurrentTubeNumber++;
+        }
+    }
+
+    function update() {
+        var date = new Date();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+
+        var num0 = Math.floor(hour / 10);
+        var num1 = hour - 10 * num0;
+        var num2 = Math.floor(minute / 10);
+        var num3 = minute - 10 * num2;
+        var num4 = Math.floor(second / 10);
+        var num5 = second - 10 * num4;
+
+        for (var i = 0; i < 6; i++) {
+            var temp = eval('num' + i);
+            var grandSelector = "#nixie-tube-" + i;
+            var allNumbers = grandSelector + " .nixie-number";
+            var childSelector = grandSelector + " .nixie-number-" + temp;
+            var background = grandSelector + " .nixie-background";
+
+            $(allNumbers).each(function () {
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active');
+                }
+            });
+
+            if ($(background).hasClass('active')) {
+                $(background).removeClass('active');
+            }
+
+            $(childSelector).addClass('active');
+            $(background).addClass('active');
+        }
+    }
+</script>
+    <div id='nixietube-template' style='display:none;'>
+        <div id='nixie-tube-[order]' class='nixie-container'>
+            <div class='nixie-background'></div>
+            <svg class='nixie-number nixie-number-1'  viewBox="0 0 256 512" version="1.1">
+                <line class="nixie-number-part" x1="128" y1="10" x2="66" y2="72"/>
+                <line class="nixie-number-part" x1="128" y1="492" x2="128" y2="10"/>
+            </svg>
+            <svg class='nixie-number nixie-number-2'  viewBox="0 0 256 512" version="1.1">
+                <path class="nixie-number-part"
+                      d="M38.3,66.4C59.3,32,91.7,10,128,10c63.5,0,115,67.5,115,150.7s-51.5,150.7-115,150.7"/>
+                <path class="nixie-number-part" d="M13,496c0-102,51.5-184.7,115-184.7"/>
+                <line class="nixie-number-part" x1="13" y1="496" x2="227.3" y2="496"/>
+            </svg>
+            <svg class='nixie-number nixie-number-0'  viewBox="0 0 256 512" version="1.1">
+                <ellipse class="nixie-number-part" cx="128" cy="256" rx="115" ry="246"/>
+            </svg>
+            <svg class='nixie-number nixie-number-3'  viewBox="0 0 256 512" version="1.1">
+                <path class="nixie-number-part"
+                      d="M22,410.8c16.8,46.4,57.9,86.3,106,85.9c59.7-0.5,115-63,115-140.6c0-74.1-50.4-126.7-93.5-138.1"/>
+                <line class="nixie-number-part" x1="149.5" y1="218" x2="243" y2="13"/>
+                <line class="nixie-number-part" x1="27.3" y1="13" x2="243" y2="13"/>
+            </svg>
+            <svg class='nixie-number nixie-number-9'  viewBox="0 0 256 512" version="1.1">
+                <circle class="nixie-number-part" cx="128" cy="128" r="115"/>
+                <line class="nixie-number-part" x1="237.4" y1="163.7" x2="135.8" y2="499"/>
+            </svg>
+            <svg class='nixie-number nixie-number-4'  viewBox="0 0 256 512" version="1.1">
+                <line class="nixie-number-part" x1="196.2" y1="13" x2="196.2" y2="496.7"/>
+                <line class="nixie-number-part" x1="196.2" y1="356.1" x2="22" y2="356.1"/>
+                <line class="nixie-number-part" x1="196.2" y1="13" x2="22" y2="356.1"/>
+            </svg>
+            <svg class='nixie-number nixie-number-8'  viewBox="0 0 256 512" version="1.1">
+                <ellipse class="nixie-number-part" cx="128" cy="129" rx="99.2" ry="116"/>
+                <ellipse class="nixie-number-part" cx="128" cy="370.8" rx="112.5" ry="125.8"/>
+            </svg>
+            <svg class='nixie-number nixie-number-5'  viewBox="0 0 256 512" version="1.1">
+                <path class="nixie-number-part"
+                      d="M38.3,442.6C59.3,477,91.7,499,128,499c63.5,0,115-67.5,115-150.7s-51.5-150.7-115-150.7"/>
+                <path class="nixie-number-part" d="M13,13c0,102,51.5,184.7,115,184.7"/>
+                <line class="nixie-number-part" x1="13" y1="13" x2="227.3" y2="13"/>
+            </svg>
+            <svg class='nixie-number nixie-number-7'  viewBox="0 0 256 512" version="1.1">
+                <line class="nixie-number-part" x1="15.5" y1="13" x2="240.5" y2="13"/>
+                <line class="nixie-number-part" x1="128" y1="496.7" x2="240.5" y2="13"/>
+            </svg>
+            <svg class='nixie-number nixie-number-6'  viewBox="0 0 256 512" version="1.1">
+                <circle class="nixie-number-part" cx="128" cy="384" r="115"/>
+                <line class="nixie-number-part" x1="18.6" y1="348.3" x2="120.2" y2="13"/>
+            </svg>
+        </div>
+    </div>
+    <div id='clock-surface'></div>
+</span></a><br>
+
+  <a href="./kururu/index.html">
+    <img alt="" src="./img/logo-electron.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text" face="comic sans ms" >万恶之源-miHoYo</span></a><br>
+
+  <a href="./渐变.html"><img alt="" src="./img/logo-apple-ar.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>services</a><br>
+  <a href="#"><img alt="" src="./img/fitness-outline.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>clients</a><br>
+  <a href="#"><img alt="" src="./img/bonfire-outline.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>contact</a>
+    <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    
+    .sidebar {
+      height: 100%;
+      width: 85px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #272020d5;
+      /* opacity: 1; */
+      transition: 0.5s;
+      overflow-x: hidden;
+      padding-top: 200px;
+      white-space: nowrap;
+    }
+    
+    .sidebar a {
+      padding: 8px 8px 8px 26px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+    }
+    
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+    
+    main .sidebar {
+      position: absolute;
+      top: 0;
+      right: 35px;
+      font-size: 36px;
+      margin-left: 70px;
+    }
+    
+    .material-icons,
+    .icon-text {
+      vertical-align: middle;
+    }
+    
+    .material-icons {
+      padding-bottom: 3px;
+      margin-right: 70px;
+    }
+    
+    #main {
+        position: absolute;
+        top: 80px;
+      padding: 16px;
+      margin-left: 86px;
+      transition: margin-left 0.5s;
+    }
+    
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+    </style>
+    <script>
+        var mini = true;
+    
+    function toggleSidebar() {
+      if (mini) {
+        console.log("opening sidebar");
+        // 展开宽度
+        document.getElementById("mySidebar").style.width = "370px";
+        document.getElementById("main").style.marginLeft = "370px";
+        this.mini = false;
+      } else {
+        console.log("closing sidebar");
+        document.getElementById("mySidebar").style.width = "85px";
+        document.getElementById("main").style.marginLeft = "85px";
+        this.mini = true;
+      }
+    }
+    </script>
+</div>
 
     
+<div id="main">
+    <body >
+        <div id="player">
+            <!-- 歌曲信息模块 -->
+            <div id="player-content1">
+                <!-- 歌曲名 -->
+                <div class="music-name"></div>
+                <!-- 歌手名 -->
+                <div class="artist-name"></div>
+                <!-- 歌曲时间 -->
+                <div class="time">
+                    <!-- 当前播放的时间 -->
+                    <div class="current-time"></div>
+                    <!-- 歌曲总时长 -->
+                    <div class="total-time"></div>
+                </div>
+                <!-- 进度条 -->
+                <div id="s-area">
+                    <!-- 鼠标移动到进度条上，显示的时间信息 -->
+                    <div id="ins-time"></div>
+                    <!-- 鼠标移动到进度条上，进度条变暗部分-->
+                    <div id="s-hover"></div>
+                    <!-- 表示当前歌曲播放进度的蓝色进度条 -->
+                    <div id="seek-bar"></div>
+                </div>
+            </div>
+    
+            <!-- 控制模块 -->
+            <div id="player-content2">
+                <!-- 左侧歌曲封面旋转模块 -->
+                <div class="music-imgs">
+                    <!-- 封面图 -->
+                    <div class="img"></div>
+                    <!-- 歌曲缓冲时的提示文字 -->
+                    <div id="buffer-box">缓冲…</div>
+                </div>
+                <!-- 右侧歌曲操作模块 -->
+                <div class="player-controls">
+                    <!-- 上一首按钮 -->
+                    <div class="btns prev iconfont">&#xe603;</div>
+                    <!-- 暂停/播放 按钮 -->
+                    <div class="btns play-pause icon-jiediankaishi iconfont"></div>
+                    <!-- 下一首按钮 -->
+                    <div class="btns next iconfont">&#xe602;</div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+  <h2>Open/Collapse Sidebar on Hover</h2>
+  <p>Hover over any part of the sidebar to open the it.</p>
+  <p>To close the sidebar, move your mouse out of the sidebar.</p>
+</div>
+
+
+<!-- 回到顶部按钮 -->
 	<style>
 		
 		/*火箭动态效果*/
@@ -81,6 +521,7 @@
 
 			<!--导航栏-->
 			li,ul,a,div{
+                
 				border: 0;
 				list-style: none;
 				z-index: 0;
@@ -104,7 +545,7 @@
 			}
 			.ue-bar{
 				background-color: #000000;
-				opacity:0.5;
+				opacity:0.7;
 				position: sticky;    /*吸顶效果*/
 				top: 0;				 /*吸顶效果*/
 				z-index: 0;
@@ -369,66 +810,19 @@ function textFlag(options) {
 }
 </script>
 </head>
-	
+
 <!-- 标题栏背景音乐的制作 -->	
 <!-- <audio src="music/晴天-周杰伦.mp3" autoplay="autoplay" controls="controls" loop="loop" preload="auto" ></audio> -->
-<body>
-    <div id="player">
-        <!-- 歌曲信息模块 -->
-        <div id="player-content1">
-            <!-- 歌曲名 -->
-            <div class="music-name"></div>
-            <!-- 歌手名 -->
-            <div class="artist-name"></div>
-            <!-- 歌曲时间 -->
-            <div class="time">
-                <!-- 当前播放的时间 -->
-                <div class="current-time"></div>
-                <!-- 歌曲总时长 -->
-                <div class="total-time"></div>
-            </div>
-            <!-- 进度条 -->
-            <div id="s-area">
-                <!-- 鼠标移动到进度条上，显示的时间信息 -->
-                <div id="ins-time"></div>
-                <!-- 鼠标移动到进度条上，进度条变暗部分-->
-                <div id="s-hover"></div>
-                <!-- 表示当前歌曲播放进度的蓝色进度条 -->
-                <div id="seek-bar"></div>
-            </div>
-        </div>
 
-        <!-- 控制模块 -->
-        <div id="player-content2">
-            <!-- 左侧歌曲封面旋转模块 -->
-            <div class="music-imgs">
-                <!-- 封面图 -->
-                <div class="img"></div>
-                <!-- 歌曲缓冲时的提示文字 -->
-                <div id="buffer-box">缓冲…</div>
-            </div>
-            <!-- 右侧歌曲操作模块 -->
-            <div class="player-controls">
-                <!-- 上一首按钮 -->
-                <div class="btns prev iconfont">&#xe603;</div>
-                <!-- 暂停/播放 按钮 -->
-                <div class="btns play-pause icon-jiediankaishi iconfont"></div>
-                <!-- 下一首按钮 -->
-                <div class="btns next iconfont">&#xe602;</div>
-            </div>
-        </div>
-    </div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/index.js"></script>
-</body>
 
 <table width="100%" align="center" >
 <body class="cursor">
 		<!-- 星星特效 -->
     <div id="stars">
+
     </div>
 	 <script>  //鼠标样式
-	new textFlag({ element: document.querySelector("#textFlag"), text: '飘飘姐飘啊飘啊飘啊飘啊飘' })
+	new textFlag({ element: document.querySelector("#textFlag"), text: '飘飘 飘啊飘啊飘啊飘啊飘' })
 	</script>
     <script>
         (function () {
@@ -451,14 +845,17 @@ function textFlag(options) {
         })();
     </script>
 	
-    <table border="0px" width="100%" >
-        <tr height="350px">
-            <td width="100%" align="center">
+    <table border="0px" >
+        <tr height="800px">
+            <td >
                     <!-- 𝘽𝘼𝙄 ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 𝙔𝙮 -->
-                <a href="#" > <font color="	#F08080" size="7" face="comic sans ms" ><strong>⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 </strong></font></a>
+                    <!-- color:#F08080; -->
+                    <!-- <p align="center" style="font-size: 28px;font-family:楷体;color:white;">2006年美国周刊年度风云人物&nbsp; &#9813</p> -->
+                <a href="#" > <p style="font-size: 68px;color:#5c437c;position: absolute;left: 35%;"><strong>⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 </strong></p></a>
             </td>
         </tr>
     </table>
+</body>
 </table>
 
 <table align="center">
@@ -690,8 +1087,9 @@ function textFlag(options) {
         /* 因为要无缝衔接 所以width要设置为100% */
         width: 100%;
         /* 图片最高高度 */
-        /* 可点击区域 */
-        height: 50px;
+
+        /* 不可点击区域 */
+        height: 5px;
         /* 背景颜色 看效果用的之后要注释掉 */
         /* <!-- background-color: pink; --> */
         
@@ -875,7 +1273,7 @@ function textFlag(options) {
         document.addEventListener("mouseleave", function() {
             setTimeout(function() {
             box.classList.add("show");
-        }, 60000);
+        }, 120000);
         });
         
         document.addEventListener("mouseenter", function() {
@@ -952,8 +1350,6 @@ function textFlag(options) {
 		</div>
 
 </html>
-
-
 
 <!-- 回到顶部按钮 -->
 <div class="com" title="点击回到顶部">
@@ -1148,12 +1544,12 @@ function textFlag(options) {
 <!--新年快乐-->
 	<div id="xlkl">
     <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
-        <tr><th><font face="comic sans ms" color="white" size="9"><strong>辞暮尔尔，烟火年年</strong></font></th></tr><br />
+        <tr><th><font face="comic sans ms" color="white" size="9"><strong>辞暮尔尔，烟火年年</strong><br /><strong>朝朝夕夕，岁岁平安<br /></strong></font></th></tr><br />
         <tr>
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white" >  
 				<!-- 提前祝你新年快乐<a href="./newyear/newyear.html" title="" target="top">点我点我</a> -->
-				<a class="this-div3" href="newyear/newyear.html" target="top">山月知我心底事</br > &nbsp; &nbsp;一岁一礼望顺遂</br ></a>
+				<a class="this-div3" href="newyear/newyear.html" target="top">\历添新岁月</br ><br /> &nbsp; &nbsp;春满旧山河\</br ></a>
 				<p>
             </td>
         </tr>
@@ -1168,16 +1564,19 @@ function textFlag(options) {
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white">
 				<!-- <a href="404.html" title="" target="">如果你真的很无聊，点我吧</a> -->
-				<div style="height: 600px;width: 360px;background-color: #75517d;border-radius: 20px;z-index: -50;opacity: .7;">
-                <a class="this-div3" href="404.html" target="top">人道洛阳花似锦</br > &nbsp; &nbsp;偏我来时不遇春</br ></a>
+				<div style="height: 600px;width: 360px;background-color: #75517d;border-radius: 20px;z-index: -10;opacity: 1;">
+                <a class="this-div3" href="404.html" target="top">\人道洛阳花似锦</br ><br /> &nbsp; &nbsp;偏我来时不遇春\</br ></a>
 				</div>
                 <style>
                     .this-div3{
                         background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
                         -webkit-text-fill-color: transparent;
-                        -webkit-background-clip: text;
+                        /* -webkit-background-clip: text;
                         -webkit-background-size: 200% 100%;
-                        -webkit-animation:  maskedAnimation 4s infinite linear;
+                        -webkit-animation:  maskedAnimation 4s infinite linear; */
+                        background-clip: text;
+                        background-size: 200% 100%;
+                        animation:  maskedAnimation 4s infinite linear;
                         font-size: 48px;
                         font-family:FangSong;
                         z-index:9;
@@ -1189,8 +1588,8 @@ function textFlag(options) {
                         text-align: center;
                         padding-left:50%;
                         padding-top:10px;
-                        display:flex;
                         -webkit-display:flex;
+                        display:flex;
                         flex-direction:column; 
                         /* align-content: center; */
                         /* vertical-align: middle; */
@@ -1223,9 +1622,9 @@ function textFlag(options) {
 .this-div{
 	background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-background-size: 200% 100%;
-    -webkit-animation:  maskedAnimation 4s infinite linear;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation:  maskedAnimation 4s infinite linear;
     font-size: 50px;
 	font-family:FangSong;
 	z-index:9;
@@ -1237,8 +1636,8 @@ function textFlag(options) {
     text-align: center;
     padding-left:70%;
 	padding-top:110px;
-    display:flex;
     -webkit-display:flex;
+    display:flex;
     flex-direction:column; 
     /* align-content: center; */
     /* vertical-align: middle; */
@@ -1280,7 +1679,7 @@ h4 {text-decoration:blink}
 </body>
 -->
 <div id="dqxmb">
-    <table width="100%"  height="300px" bgcolor="black" cellpadding="6px" align="center" style="opacity:0.5;z-index: -1;";>
+    <table width="100%"  height="300px" bgcolor="black" cellpadding="6px" align="center" style="opacity:0.7;z-index: -1;";>
         <tr>
             <td align="center">
                 <p align="center" ><font size="7" face="SimSun" color="white">男儿若无凌云志，空负八尺顶天躯</font></p><br /><br />
@@ -1576,9 +1975,12 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
 }
 </style>
             <br>   
+             <a href="https://www.foreverblog.cn/" target="_blank" > <img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="width:auto;height:16px;"> </a>
             |
-            <a href="https://www.travellings.cn/go.html" target="blank" title="开往-友链接力"><img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120"></a>
-            |
+            <a href="https://www.travellings.cn/go.html" target="blank" title="开往-友链接力"><img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="100"></a>
+            | 
+            <img src="https://img.foreverblog.cn/wormhole_3.gif" alt="" style="width:auto;height:25px;border-radius: 10px;" title="穿梭虫洞-随机访问十年之约友链博客">
+            <!-- <a href="https://foreverblog.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/tp.gif" alt="探索虫洞" width="120"></a> -->
         </div>
     </div>
 	
@@ -1587,5 +1989,8 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
         </tr>
     </table>
 </div>
+
 <footer>
+    <!-- <div  class="icon-text"><iframe title="Github" src="./img/logo-github.svg"></iframe></div>  -->
+    
 </footer>
