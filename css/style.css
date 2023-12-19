@@ -4,9 +4,12 @@
     box-sizing: border-box;
 } */
 #player{
-    position: relative;
-    top: 0px;
-    /* left:50px; */
+    position:relative;
+    /* 对定位，position属性值为absolute，之后再设置top、right、bottom、left四个方向的值
+    top和bottom可能会有冲突，不设置其一也可以，左右一样
+    在原有的块标签位置移动之后，原位置被释放，可以被其他块标签占用 */
+    top: 0%;
+    left: 0px;
 }
 /* 歌曲信息模块 */
 #player-content1{
@@ -16,7 +19,8 @@
     width: 170px;
     height:90px;
     padding:0 20px 0 130px;
-    background: rgb(209, 226, 245);
+    background: rgb(190, 209, 215);
+    /* backdrop-filter:blur(50px); */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     /* transition过渡动画：设置top属性过渡，过渡时间0.3s,速度曲线为ease(逐渐变慢) */
@@ -103,7 +107,7 @@
     bottom: 0;
     left: 0;
     width: 0;
-    background-color: rgb(54, 127, 196);
+    background-color: rgb(102, 151, 197);
     transition: 0.2s ease width;
 }
 
@@ -111,10 +115,11 @@
     position: relative;
     width:350px;
     height:90px;
-    
-    background: #fff9f9;
+    background: #814d4d6f;
+    backdrop-filter:blur(50px);
+    /* 毛玻璃效果 */
     border-radius: 20px;
-    box-shadow: 0 30px 50px #c47190;
+    /* box-shadow: 0 30px 50px #c47190; */
 }
 /* 左侧封面图模块 */
 .music-imgs{
@@ -208,14 +213,14 @@
 
 .music-imgs.buffering .img.active
 {
-    opacity: 0.8;
+    opacity: 0.7;
     -webkit-filter: blur(2px);
     filter: blur(2px);
 }
 
 .music-imgs.buffering #buffer-box
 {
-    opacity: 1;
+    opacity: 0.7;
 }
 
 /* .player-controls{
