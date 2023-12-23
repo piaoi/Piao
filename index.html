@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-18 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2023-12-22 15:15:04
+ * @LastEditTime: 2023-12-23 10:47:43
  * @FilePath: \Index Web\index.html
 -->
 
@@ -43,7 +43,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.903); /* 初始颜色为半透明黑色 */
+      background-color: rgba(0, 0, 0, 0.956); /* 初始颜色为半透明黑色 */
     /* background: linear-gradient(to top,#515c6f,#00348d); */
       opacity: 1; /* 初始透明度为1，完全不透明 */
       transition: opacity 1s ease-in-out; /* 添加渐变效果 */
@@ -78,7 +78,7 @@
     
 
 <!-- 侧边栏 -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
 
 <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
 
@@ -280,8 +280,8 @@
       z-index: 1;
       top: 0;
       left: 0;
-      background-color: #272020d5;
-      /* opacity: 1; */
+      background-color: #000000;
+      opacity: 0.8;
       transition: 0.5s;
       overflow-x: hidden;
       padding-top: 200px;
@@ -414,7 +414,6 @@
   <p style="font-size: large;color: white;font-family: fangsong;">/&nbsp;休对故人思故国</p>
   <p style="font-size: large;color: white;font-family: fangsong;">&nbsp;&nbsp;且将新火试新茶</p>
   <h2  style="color: white;font-family: fangsong;font-size: x-large;">&nbsp; &nbsp;&nbsp; 诗酒趁年华 &nbsp;/</h2>
-
 </div>
 
 
@@ -486,8 +485,8 @@
 			}
 			.ue-bar{
 				background-color: #000000;
-				opacity:0.7;
-				position: sticky;    /*吸顶效果*/
+				opacity:0.8;   
+				position: sticky;   
 				top: 0;				 /*吸顶效果*/
 				z-index: 0;
 			}
@@ -602,7 +601,7 @@
 		/* <!-- width: 100%; -->
 		<!-- height: 100%;  --> */
 		position: relative;
-		z-index: 100;
+		z-index: 102;
 		}
 		
 </style>
@@ -786,36 +785,107 @@ function textFlag(options) {
         })();
     </script>
 	
-    <table border="0px" >
+    <table >
         <tr height="800px">
-            <td >
+        <td>
                     <!-- 𝘽𝘼𝙄 ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 𝙔𝙮 -->
-                <a href="#" > <p style="font-size: 68px;color:#5c437c;position: absolute;left: 35%;"><strong>⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉 </strong></p></a>
-            </td>
+                    <style>
+                        .texttype{
+                            font-family: 'fangsong';
+                            display: inline-block;
+                            position: absolute;
+                          font-size: 60px;
+                          margin-top: 100px;    
+                          margin-bottom: 200px;
+                          left: 30%;
+                          height: 60px;
+                          line-height: 60px;
+                          color: rgb(255, 255, 255);
+                        }
+                        .texttype::after{
+                            content: '';
+                            position: absolute;
+                            right: -10px;
+                            top: 5px;
+                            height: 60px;
+                            width: 5px;     
+                            background-color: #fff;
+                            animation: san 0.5s steps(1) infinite;
+                        }
+                        @keyframes san{
+                            0%,100%{
+                                background-color: #ffffff;
+                            }
+                            50%{
+                               background-color: transparent;
+                            }
+                
+                        }
+                    </style>
+                    <body>
+                        <h1>
+                            <span class="texttype" ></span>
+                        </h1>
+                            <script>
+                               <!-- 获取.text标签 -->
+                            const texttype = document.querySelector('.texttype');
+                            //  <!-- 定义数组，里面放上文本 -->
+                            const txt  =["亻尔女子，我是木白广木林。","欢→迎↗光↑临↓ ↑","⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉"]; 
+                            // <!-- 定义当前要显示的字符串的第几个字符 -->
+                            var index=0;
+                            // <!-- 定义文本数组的下标 -->
+                            var xiaBiao= 0;
+                            // <!-- 定义huan，拿来判断是要实现打字还是删除字效果，初始为真 -->
+                            var huan = true;
+                        //  <!-- 定义一个定时器，200毫秒执行一次 -->
+                        var timer = 0;
+                            setInterval(function(){
+                            //    <!-- huan为真 -->
+                                if(huan){             
+                                    // <!-- 给.text标签添加字符，用.slice方法 --> 
+                                    texttype.innerHTML = txt[xiaBiao].slice(0,++index);
+                                    console.log(index)
+                                }
+                                else if(timer<=1){
+                                //   <!-- 给.text标签删除字符，用.slice方法 --> 
+                                    texttype.innerHTML = txt[xiaBiao].slice(0,index--);
+                                    console.log(index)
+                    
+                                }
+                                
+                                // <!-- 判断当前index是否为当前字符串长度了+3了 ，+3是为了打完后多等会，多走3个啥也不做的轮回-->
+                                if(index==txt[xiaBiao].length+3)
+                                {
+                                // <!-- huan变为假，开始执行删除文字效果 -->
+                                    huan = false;
+                                }
+                                // <!-- 如果删完了 -->
+                                else if(index<0)
+                                {   
+                                // <!-- index=0，huan为真，从头开始打字 -->
+                                    index = 0;
+                                    timer =timer + 1;
+                                    console.log(timer);
+                                    huan = true;
+                                    // <!-- 数组下标加1 -->
+                                    xiaBiao++;
+                                    if(xiaBiao>=txt.length)
+                                    {   
+                                    // <!-- 如果数组下标超过了，又回到0 -->
+                                        xiaBiao=0; 
+                                    }
+                                }
+                    
+                            },200)
+
+                        </script>
+                    </body>
+                    
+                </td>
         </tr>
     </table>
 </body>
 </table>
-
-<table align="center">
-<tr height="260" >
-<td width="100%" align="center" >
-    <!-- <link rel="stylesheet" href="./css/typing-style.css"> -->
-<div>
-    <div class="typing"  style="margin: 200px;"> 
-        <a href="https://space.bilibili.com/15214084">
-        <font style="color: #ffffff;"  size="6" >
-            <u>你好，我是木白广木林。欢→迎↗光↑临↓ !
-            </u>
-        </font>
-        </a>
-    </div>
-</div>
-</td>
-</tr>
-</table>
-
-
 
 <!-- 轮播图 -->
 <body>
@@ -830,7 +900,8 @@ function textFlag(options) {
         height:500px;
         padding:50px; */
         position: relative;
-		margin-top: 200px;
+		margin-top: 400px;
+        margin-bottom: -200px;
         left:43%;
         /* top:50%; */
         transform: translate(-50%,-50%);
@@ -1412,44 +1483,6 @@ function textFlag(options) {
     <table width="100%" cellspacing="50px" cellpadding="50px"  align="center">
         <tr>
             <td align="center">
-<style>
-.typing {
-    color: white;
-    font-size: 2em;
-	font-family:comic sans ms;
-    width: 20em;
-    height: 1.5em;
-    border-right: 1px solid transparent;
-    animation: typing 5s steps(42, end), blink-caret 1.25s step-end infinite;
-    font-family: Consolas, Monaco;
-    word-break: break-all;
-    overflow: hidden;
-}
-/* 打印效果 */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 20em;
-    }
-}
-
-/* 光标 */
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: currentColor;
-    }
-}
-</style>
-         <!-- <div class="typing">“迄今为止的人生都大写着失败，但这不影响我继续向前。”</div> -->
 			  <p align="center" >
 			  <font size="6" face="comic sans ms" color="white">“迄今为止的人生都大写着失败，但这不影响我继续向前。”</font>
 			  </p>
@@ -1599,7 +1632,7 @@ function textFlag(options) {
 	</div>
 	
 <div id="dqxmb">
-    <table width="100%"  height="300px" bgcolor="black" cellpadding="6px"  style="opacity:0.7;z-index: -1;";>
+    <table width="100%"  height="300px" bgcolor="black" cellpadding="6px"  style="opacity:0.8;z-index: -1;";>
         <tr>
             <td>
                 <p align="center" ><font size="7" face="SimSun" color="white">男儿若无凌云志，空负八尺顶天躯</font></p><br /><br />
@@ -1618,7 +1651,7 @@ function textFlag(options) {
                 display: inline-block;
                 height: 60px;
                 width: 60px;
-                float: left;
+                /* float: left; */
                 margin: 0 5px;
                 overflow: hidden;
                 background: #fff;
@@ -1638,124 +1671,313 @@ function textFlag(options) {
                 border-radius: 50px;
                 box-sizing: border-box;
                 /* line-height: 1px; */
-                transition: all 0.3s ease-out;
+                transition: all 0.4s ease-out;
               }
               .wrapperaa .buttonaa:nth-child(1):hover .iconaa{
                 /* background:#ff0000 ; */
                 background:#000000 ;
-                transform: scale(0.85); 
+                transform: scale(0.65); 
                     img {
-                    
                     filter:invert(100%)
                     }
               }
               .wrapperaa .buttonaa:nth-child(2):hover .iconaa{
                 /* background: #00ff48; */
                 background:#000000 ;
-                transform: scale(0.85); 
+                transform: scale(0.65); 
                     img {
-                    
                     filter:invert(100%)
                     }
               }
               .wrapperaa .buttonaa:nth-child(3):hover .iconaa{
                 /* background: #00c8ff; */
                 background:#000000 ;
-                transform: scale(0.85); 
+                transform: scale(0.65); 
                     img {
-                    
                     filter:invert(100%)
                     }
               }
               .wrapperaa .buttonaa:nth-child(4):hover .iconaa{
                 background:#000000 ;
-                transform: scale(0.85); 
+                transform: scale(0.65); 
                     img {
-                    
                     filter:invert(100%)
                     }
               }
               .wrapperaa .buttonaa:nth-child(5):hover .iconaa{
                 /* background: #4267B2; */
                 background:#000000 ;
-                transform: scale(0.85); 
+                transform: scale(0.65); 
                     img {
-                    
                     filter:invert(100%)
                     }
               }
               .wrapperaa .buttonaa .iconaa i{
                 /* font-size: 55px; */
                 /* line-height: 10px; */
-                transition: all 0.3s ease-out;
+                transition: all 0.4s ease-out;
               }
-              .wrapperaa .buttonaa:hover .icon i{
-                color: #fff;
-              }
+              /* .wrapperaa .buttonaa:hover .icon i{
+                color: #000000;
+              } */
               .wrapperaa .buttonaa span{
                 font-size: 20px;
                 font-weight: 500;
                 /* line-height: 60px; */
                 /* margin-left: 10px; */
-                transition: all 0.3s ease-out;
+                transition: all 0.4s ease-out;
               }
-              .wrapperaa .buttonaa:nth-child(1) span{
+              .wrapperaa .buttonaa:nth-child(1) a{
                 color: #ff0000;
               }
-              .wrapperaa .buttonaa:nth-child(2) span{
+              .wrapperaa .buttonaa:nth-child(2) a{
                 color: #00ff48;
               }
-              .wrapperaa .buttonaa:nth-child(3) span{
+              .wrapperaa .buttonaa:nth-child(3) a{
                 color: #00c8ff;
               }
-              .wrapperaa .buttonaa:nth-child(4) span{
+              .wrapperaa .buttonaa:nth-child(4) a{
                 color: #000000;
               }
-              .wrapperaa .buttonaa:nth-child(5) span{
-                color: #ff0000;
-              }
-
+              /* .wrapperaa .buttonaa:nth-child(5) span{
+                color: linear-gradient(to top,#515c6f,#00348d);
+                background: linear-gradient(to right,#00c8ff, #000000, #ff0000);
+                -webkit-background-clip: text;
+                color: transparent;
+              } */
                     </style>
+
+                    
                     <div class="wrapperaa">
                        <div class="buttonaa">
                           <div class="iconaa"> 
                             <img alt="" src="./img/qq.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
-                            
                           </div>
-                          <span >QICQ</span>
+                          <a id="link1" style="font-size: large;">QICQ</a>
+                            <!-- 图片元素 -->
+                            <img src="./img/QRqq.jpg" alt="" id="image1">
+                            <style>
+                                /* 图片的初始状态为隐藏 */
+                                #image1 {
+                                    width: 200px;
+                                    height: 200px;
+                                    border-radius: 30px;
+                                  opacity: 0;
+                                  position: absolute;
+                                  transition: opacity 0.5s ease-in-out; /* 添加渐变效果 */
+                                  pointer-events: none; /* 禁止图片接收鼠标事件 */
+                                }
+                              </style>
+                               <script>
+                                var link1 = document.getElementById('link1');
+                                var image1 = document.getElementById('image1');
+                                var hoverTimeout;
+                                var mouseoutTimeout;
+    
+                                // 鼠标悬停事件
+                                link1.addEventListener('mouseover', function() {
+                                // 悬停两秒后显示图片
+                                hoverTimeout = setTimeout(function() {
+                                    image1.style.opacity = '1';
+                                }, 1000); // 2000毫秒（2秒）
+                                });
+    
+                                // 鼠标移出事件
+                                link1.addEventListener('mouseout', function() {
+                                // 如果鼠标移出前未达到悬停两秒，取消显示图片的操作
+                                clearTimeout(hoverTimeout);
+    
+                                // 等待鼠标离开两秒后隐藏图片
+                                mouseoutTimeout = setTimeout(function() {
+                                    image1.style.opacity = '0';
+                                }, 1000); // 2000毫秒（2秒）
+                                });
+    
+                                // 鼠标再次悬停事件
+                                image1.addEventListener('mouseover', function() {
+                                // 如果在图片显示期间鼠标再次悬停，取消隐藏图片的操作
+                                clearTimeout(mouseoutTimeout);
+                                });
+                            </script>
                        </div>
                        <div class="buttonaa">
                           <div class="iconaa">
                             <img alt="" src="./img/wechat.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
                           </div>
-                          <span>Wechat</span>
+                          <!-- <span>Wechat</span> -->
+                          <a id="link2" style="font-size: large;">Wechat</a>
+                          <img src="./img/QR微信.png" alt="" id="image2">
+                          <style>
+                            /* 图片的初始状态为隐藏 */
+                            #image2 {
+                                width: 200px;
+                                height: 200px;
+                                border-radius: 30px;
+                              opacity: 0;
+                              position: absolute;
+                              transition: opacity 0.5s ease-in-out; /* 添加渐变效果 */
+                              pointer-events: none; /* 禁止图片接收鼠标事件 */
+                            }
+                          </style>
+                           <script>
+                            var link2 = document.getElementById('link2');
+                            var image2 = document.getElementById('image2');
+                            var hoverTimeout;
+                            var mouseoutTimeout;
+
+                            // 鼠标悬停事件
+                            link2.addEventListener('mouseover', function() {
+                            // 悬停两秒后显示图片
+                            hoverTimeout = setTimeout(function() {
+                                image2.style.opacity = '1';
+                            }, 1000); // 2000毫秒（2秒）
+                            });
+
+                            // 鼠标移出事件
+                            link2.addEventListener('mouseout', function() {
+                            // 如果鼠标移出前未达到悬停两秒，取消显示图片的操作
+                            clearTimeout(hoverTimeout);
+
+                            // 等待鼠标离开两秒后隐藏图片
+                            mouseoutTimeout = setTimeout(function() {
+                                image2.style.opacity = '0';
+                            }, 1000); // 2000毫秒（2秒）
+                            });
+
+                            // 鼠标再次悬停事件
+                            image2.addEventListener('mouseover', function() {
+                            // 如果在图片显示期间鼠标再次悬停，取消隐藏图片的操作
+                            clearTimeout(mouseoutTimeout);
+                            });
+                        </script>
                        </div>
                        <div class="buttonaa">
                           <div class="iconaa">
                             <img alt="" src="./img/twitter.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
                           </div>
-                          <span>Twitter</span>
+                          <!-- <span>Twitter</span> -->
+                          <a id="link3" style="font-size: large;">Twitter</a>
+                          <img src="./img/QR推特.png" alt="" id="image3">
+                          <style>
+                            /* 图片的初始状态为隐藏 */
+                            #image3 {
+                                width: 200px;
+                                height: 200px;
+                                border-radius: 30px;
+                              opacity: 0;
+                              position: absolute;
+                              transition: opacity 0.5s ease-in-out; /* 添加渐变效果 */
+                              pointer-events: none; /* 禁止图片接收鼠标事件 */
+                            }
+                          </style>
+                           <script>
+                            var link3 = document.getElementById('link3');
+                            var image3 = document.getElementById('image3');
+                            var hoverTimeout;
+                            var mouseoutTimeout;
+
+                            // 鼠标悬停事件
+                            link3.addEventListener('mouseover', function() {
+                            // 悬停两秒后显示图片
+                            hoverTimeout = setTimeout(function() {
+                                image3.style.opacity = '1';
+                            }, 1000); // 2000毫秒（2秒）
+                            });
+
+                            // 鼠标移出事件
+                            link3.addEventListener('mouseout', function() {
+                            // 如果鼠标移出前未达到悬停两秒，取消显示图片的操作
+                            clearTimeout(hoverTimeout);
+
+                            // 等待鼠标离开两秒后隐藏图片
+                            mouseoutTimeout = setTimeout(function() {
+                                image3.style.opacity = '0';
+                            }, 1000); // 2000毫秒（2秒）
+                            });
+
+                            // 鼠标再次悬停事件
+                            image3.addEventListener('mouseover', function() {
+                            // 如果在图片显示期间鼠标再次悬停，取消隐藏图片的操作
+                            clearTimeout(mouseoutTimeout);
+                            });
+                        </script>
                        </div>
                        <div class="buttonaa">
                           <div class="iconaa">
                             <img alt="" src="./img/github.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
                           </div>
-                          <span>Github</span>
+                          <a  href="https://github.com/baiguangsen" target=“_blank”>Github</a>
+                          <!-- 用target=“_blank”就可以让新页面在另一个窗口打开。 -->
                        </div>
-                       <div class="buttonaa">
+                       <div class="buttonaa" >
                           <div class="iconaa">
-                            <img alt="" src="./img/tiktok.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
-                             <!-- <i class="fab fa-youtube"></i> -->
-                          </div>
-                          <span>Tiktok</span>
+                            
+                            <img  alt="" src="./img/tiktok.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
+                            </div>
+                        <!-- <span id="a">Tiktok</span> -->
+                        <a class="a" id="link5">Tiktok</a>
+                        <img src="./img/QR抖音.png" alt="" id="image5">
+                        <style>
+                            #image5 {
+                           width: 200px;
+                           height: 200px;
+                           border-radius: 30px;
+                         opacity: 0;
+                         position: absolute;
+                         transition: opacity 0.5s ease-in-out; /* 添加渐变效果 */
+                         pointer-events: none; /* 禁止图片接收鼠标事件 */
+                       }
+                       </style>
+                        <style type="text/css">
+                            .a{
+                                font-size:20px;
+                                            font-family: "微软雅黑,sans-serif";
+                                            font-weight:bold;
+                                            color:#333333;
+                                            text-shadow: 
+                                            -4px -4px 0px #24f4ee,
+                                            3px 3px 0px #fe1955
+                                }
+                        </style>
+                        <script src="./js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+                        <script>
+                            var link5 = document.getElementById('link5');
+                        var image5 = document.getElementById('image5');
+                        var hoverTimeout;
+                        var mouseoutTimeout;
+ 
+                        // 鼠标悬停事件
+                        link5.addEventListener('mouseover', function() {
+                        // 悬停两秒后显示图片
+                        hoverTimeout = setTimeout(function() {
+                            image5.style.opacity = '1';
+                        }, 1000); // 2000毫秒（2秒）
+                        });
+ 
+                        // 鼠标移出事件
+                        link5.addEventListener('mouseout', function() {
+                        // 如果鼠标移出前未达到悬停两秒，取消显示图片的操作
+                        clearTimeout(hoverTimeout);
+ 
+                        // 等待鼠标离开两秒后隐藏图片
+                        mouseoutTimeout = setTimeout(function() {
+                            image5.style.opacity = '0';
+                        }, 1000); // 2000毫秒（2秒）
+                        });
+ 
+                        // 鼠标再次悬停事件
+                        image5.addEventListener('mouseover', function() {
+                        // 如果在图片显示期间鼠标再次悬停，取消隐藏图片的操作
+                        clearTimeout(mouseoutTimeout);
+                        });
+                        </script>
                        </div>
                     </div>
                 </div>
-                 
                     <br />
                     <br />
 				<!-- 请尊重作者，请务必保留版权 -->
-                <p align="center" ><font color="white">𝘾𝙤𝙥𝙮𝙧𝙞𝙜𝙝𝙩  &copy; 2024  <a style="color:white" href="https://baiguangsen.github.io/Piaopiao/">⎛⎝𝘽𝙔⎠⎞ ✨.</a> 𝘼𝙡𝙡 𝙧𝙞𝙜𝙝𝙩𝙨 𝙧𝙚𝙨𝙚𝙧𝙫𝙚𝙙.<br />𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉. </font></p>
+                <p align="center" ><font color="white">𝘾𝙤𝙥𝙮𝙧𝙞𝙜𝙝𝙩  &copy;2021-2024  <a style="color:white" >⎛⎝𝘽𝙔⎠⎞ ✨.</a> 𝘼𝙡𝙡 𝙧𝙞𝙜𝙝𝙩𝙨 𝙧𝙚𝙨𝙚𝙧𝙫𝙚𝙙.<br />𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉. </font></p>
 <!-- 运行时间及授权 -->
 	<div>
         <div>
