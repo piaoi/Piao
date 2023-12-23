@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-18 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2023-12-23 12:14:28
+ * @LastEditTime: 2023-12-23 14:50:05
  * @FilePath: \Index Web\index.html
 -->
 
@@ -1709,6 +1709,14 @@ function textFlag(options) {
                     filter:invert(100%)
                     }
               }
+              .wrapperaa .buttonaa:nth-child(6):hover .iconaa{
+                /* background: #4267B2; */
+                background:#000000 ;
+                transform: scale(0.65); 
+                    img {
+                    filter:invert(100%)
+                    }
+              }
               .wrapperaa .buttonaa .iconaa i{
                 /* font-size: 55px; */
                 /* line-height: 10px; */
@@ -1733,9 +1741,9 @@ function textFlag(options) {
               .wrapperaa .buttonaa:nth-child(3) a{
                 color: #00c8ff;
               }
-              .wrapperaa .buttonaa:nth-child(4) a{
+              /* .wrapperaa .buttonaa:nth-child(4) a{
                 color: #000000;
-              }
+              } */
               /* .wrapperaa .buttonaa:nth-child(5) span{
                 color: linear-gradient(to top,#515c6f,#00348d);
                 background: linear-gradient(to right,#00c8ff, #000000, #ff0000);
@@ -1809,7 +1817,7 @@ function textFlag(options) {
                             #image2 {
                                 width: 200px;
                                 height: 200px;
-                                border-radius: 30px;
+                                border-radius: 5px;
                               opacity: 0;
                               position: absolute;
                               transition: opacity 0.5s ease-in-out; /* 添加渐变效果 */
@@ -1903,8 +1911,8 @@ function textFlag(options) {
                           <div class="iconaa">
                             <img alt="" src="./img/github.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
                           </div>
-                          <a  href="https://github.com/baiguangsen" target=“_blank”>Github</a>
-                          <!-- 用target=“_blank”就可以让新页面在另一个窗口打开。 -->
+                          <a href="https://github.com/baiguangsen" target="_blank">Github</a>
+                          <!-- 用target="_blank"就可以让新页面在另一个窗口打开。 -->
                        </div>
                        <div class="buttonaa" >
                           <div class="iconaa">
@@ -1916,9 +1924,9 @@ function textFlag(options) {
                         <img src="./img/QR抖音.png" alt="" id="image5">
                         <style>
                             #image5 {
-                           width: 200px;
-                           height: 200px;
-                           border-radius: 30px;
+                           width: 150px;
+                           height: 150px;
+                           border-radius: 50%;
                          opacity: 0;
                          position: absolute;
                          transition: opacity 0.5s ease-in-out; /* 添加渐变效果 */
@@ -1938,7 +1946,7 @@ function textFlag(options) {
                         </style>
                         <script src="./js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
                         <script>
-                            var link5 = document.getElementById('link5');
+                        var link5 = document.getElementById('link5');
                         var image5 = document.getElementById('image5');
                         var hoverTimeout;
                         var mouseoutTimeout;
@@ -1967,6 +1975,57 @@ function textFlag(options) {
                         // 如果在图片显示期间鼠标再次悬停，取消隐藏图片的操作
                         clearTimeout(mouseoutTimeout);
                         });
+                        </script>
+                       </div>
+                       <div class="buttonaa">
+                          <div class="iconaa">
+                            <img alt="" src="./img/alipay.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
+                          </div>
+                          <!-- <span>Twitter</span> -->
+                          <a id="link6" style="font-size: large;">请给我钱(v我50)</a>
+                          <img src="./img/QR支付宝.jpg" alt="" id="image6">
+                          <style>
+                            /* 图片的初始状态为隐藏 */
+                            #image6 {
+                                width: 150px;
+                                height: 150px;
+                                border-radius: 10px;
+                              opacity: 0;
+                              position: absolute;
+                              transition: opacity 0.5s ease-in-out; /* 添加渐变效果 */
+                              pointer-events: none; /* 禁止图片接收鼠标事件 */
+                            }
+                          </style>
+                           <script>
+                            var link6 = document.getElementById('link6');
+                            var image6 = document.getElementById('image6');
+                            var hoverTimeout;
+                            var mouseoutTimeout;
+
+                            // 鼠标悬停事件
+                            link6.addEventListener('mouseover', function() {
+                            // 悬停两秒后显示图片
+                            hoverTimeout = setTimeout(function() {
+                                image6.style.opacity = '1';
+                            }, 1000); // 2000毫秒（2秒）
+                            });
+
+                            // 鼠标移出事件
+                            link6.addEventListener('mouseout', function() {
+                            // 如果鼠标移出前未达到悬停两秒，取消显示图片的操作
+                            clearTimeout(hoverTimeout);
+
+                            // 等待鼠标离开两秒后隐藏图片
+                            mouseoutTimeout = setTimeout(function() {
+                                image6.style.opacity = '0';
+                            }, 1000); // 2000毫秒（2秒）
+                            });
+
+                            // 鼠标再次悬停事件
+                            image6.addEventListener('mouseover', function() {
+                            // 如果在图片显示期间鼠标再次悬停，取消隐藏图片的操作
+                            clearTimeout(mouseoutTimeout);
+                            });
                         </script>
                        </div>
                     </div>
@@ -2266,7 +2325,7 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
             |
             <a style="display:inline-block;" href="https://www.travellings.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/logo1.gif" alt="开往-友链接力" width="100"></a>
             | 
-            <a style="display:inline-block;" href="https://www.foreverblog.cn/"><img src="./img/logo2.gif" alt="" style="width:auto;height:25px;border-radius: 10px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+            <a style="display:inline-block;" href="https://www.foreverblog.cn/" target="_blank"><img src="./img/logo2.gif" alt="" style="width:auto;height:25px;border-radius: 10px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
         </div>
             <!-- <a href="https://foreverblog.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/tp.gif" alt="探索虫洞" width="120"></a> -->
         </div>
