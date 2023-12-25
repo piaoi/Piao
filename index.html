@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-18 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2023-12-24 18:52:40
+ * @LastEditTime: 2023-12-25 11:07:52
  * @FilePath: \Index Web\index.html
 -->
 
@@ -1017,8 +1017,10 @@ function textFlag(options) {
                 <div class="item" style="background-image: url(./img/1.jpg);">
                     <div class="content">
                         <div class="des">“怎么会怪你呢”</div>
+                    </br> 
                         <div class="name">“真没礼貌，我们可是纯爱啊”</div>
-                        <button href="https://www.bilibili.com/bangumi/play/ss34430?spm_id_from=333.337.0.0">See more</button>
+                        </br>
+                        <button onclick="window.open('https://www.bilibili.com/bangumi/play/ss34430?spm_id_from=333.337.0.0')">See more</button>
                     </div>
                 </div>
                 <div class="item" style="background-image: url(./img/2.jpg);">
@@ -2048,6 +2050,11 @@ function textFlag(options) {
         show_date_time();
     </script>
 				</p>
+
+            <p  align="center" style="color:white">
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+            </p>
 <style>
 .cover-bg::before{content:'';position:absolute;top:0;bottom:0;left:0;right:0;z-index:3;background-attachment:fixed;background-image:url(./img/grid.png)}
 .cover-bg.fixed{background-attachment: fixed;background-size: cover;background-position: center center;}
@@ -2321,5 +2328,7 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
 
 <footer>
     <!-- <div  class="icon-text"><iframe title="Github" src="./img/logo-github.svg"></iframe></div>  -->
-    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    Total <span id="busuanzi_value_site_pv"></span> views. 您是我的第<span id="busuanzi_value_site_uv"></span>个小伙伴 <span id="busuanzi_value_page_pv"></span> Hits
+
 </footer>
