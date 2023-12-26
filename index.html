@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-18 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2023-12-26 08:17:05
+ * @LastEditTime: 2023-12-26 13:10:04
  * @FilePath: \Index Web\index.html
 -->
 
@@ -11,7 +11,7 @@
 <html lang="zh-CN">
     <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control,X-UA-Compatible" content="ie=edge,no-cache, no-store, must-revalidate" />
 
     <!-- 音乐播放器样式 -->
@@ -1893,7 +1893,7 @@ function textFlag(options) {
                           <div class="iconaa">
                             <img alt="" src="./img/github.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
                           </div>
-                          <a href="https://github.com/baiguangsen" target="_blank">Github</a>
+                          <a href="https://github.com/baiguangsen" target="_blank" rel="noopener">Github</a>
                           <!-- 用target="_blank"就可以让新页面在另一个窗口打开。 -->
                        </div>
                        <div class="buttonaa" >
@@ -2311,8 +2311,9 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
             |
             <a style="display:inline-block;" href="https://www.travellings.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/logo1.gif" alt="开往-友链接力" width="100"></a>
             | 
-            <a style="display:inline-block;" href="https://www.foreverblog.cn/" target="_blank"><img src="./img/logo2.gif" alt="" style="width:auto;height:25px;border-radius: 10px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+            <a style="display:inline-block;" href="https://www.foreverblog.cn/" target="_blank" rel="noopener"><img src="./img/logo2.gif" alt="" style="width:auto;height:25px;border-radius: 10px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
         </div>
+        <!-- 点击后打开新的tab页，神奇的发现原tab页已经变成了谷歌页面。原因是使用target=_blank打开新的窗口时，赋予了新的窗口一些权限可以操作原tab页，其中window.location就是一个。不使用 rel=noopener就是让用户暴露在钓鱼攻击上。 -->
             <!-- <a href="https://foreverblog.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/tp.gif" alt="探索虫洞" width="120"></a> -->
         </div>
     </div>
@@ -2321,7 +2322,7 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
     </table>
 </div>
 
-<footer>
+<!-- <footer> -->
     <!-- <div  class="icon-text"><iframe title="Github" src="./img/logo-github.svg"></iframe></div>  -->
 
-</footer>
+<!-- </footer> -->
