@@ -1,8 +1,8 @@
 <!--
  * @Author: 木白广木林
- * @Date: 2023-12-18 15:15:14
+ * @Date: 2023-12-8 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2023-12-26 13:10:04
+ * @LastEditTime: 2023-12-28 19:51:29
  * @FilePath: \Index Web\index.html
 -->
 
@@ -21,7 +21,9 @@
 
 	<!-- 网页标题改变 -->
 	<script>document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='别走嘛，我会想你的';}else{document.title='回来啦！爱你哟~'}});</script>
-		<title>木白广木林 </title>
+	<title>木白广木林 </title>
+    
+    <script src="./js/jquery-3.4.1.min.js"></script>
     
 
 	<!-- 网页标题图标 -->
@@ -86,8 +88,6 @@
   <a href="./nixie.html">
     <span class="icon-text"><img alt="" src="./img/logo-tableau.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;">
     辉光管(Nixie tube)
-
-    <script src="./js/jquery-3.4.1.min.js"></script>
     <style>
 
         #clock-surface {
@@ -340,13 +340,13 @@
     
     function toggleSidebar() {
       if (mini) {
-        console.log("opening sidebar");
+        // console.log("opening sidebar");
         // 展开宽度
         document.getElementById("mySidebar").style.width = "370px";
         document.getElementById("main").style.marginLeft = "370px";
         this.mini = false;
       } else {
-        console.log("closing sidebar");
+        // console.log("closing sidebar");
         document.getElementById("mySidebar").style.width = "85px";
         document.getElementById("main").style.marginLeft = "85px";
         this.mini = true;
@@ -804,14 +804,14 @@ function textFlag(options) {
                           color: rgb(255, 255, 255);
                         }
                         .texttype::after{
-                            content: '';
+                            content: ' ';
                             position: absolute;
                             right: -10px;
                             top: 5px;
                             height: 60px;
                             width: 5px;     
                             background-color: #fff;
-                            animation: san 0.5s steps(1) infinite;
+                            animation: san 1s steps(1) infinite;
                         }
                         @keyframes san{
                             0%,100%{
@@ -845,12 +845,12 @@ function textFlag(options) {
                                 if(huan){             
                                     // <!-- 给.text标签添加字符，用.slice方法 --> 
                                     texttype.innerHTML = txt[xiaBiao].slice(0,++index);
-                                    console.log(index)
+                                    // console.log(index)
                                 }
                                 else if(timer<=1){
                                 //   <!-- 给.text标签删除字符，用.slice方法 --> 
                                     texttype.innerHTML = txt[xiaBiao].slice(0,index--);
-                                    console.log(index)
+                                    // console.log(index)
                     
                                 }
                                 
@@ -866,7 +866,7 @@ function textFlag(options) {
                                 // <!-- index=0，huan为真，从头开始打字 -->
                                     index = 0;
                                     timer =timer + 1;
-                                    console.log(timer);
+                                    // console.log(timer); 显示计数器次数
                                     huan = true;
                                     // <!-- 数组下标加1 -->
                                     xiaBiao++;
@@ -1358,7 +1358,6 @@ function textFlag(options) {
 <!-- 回到顶部按钮 -->
 <div class="com" title="点击回到顶部">
 
-
     <script>
         //1.获取元素
         var com = document.querySelector('.com')
@@ -1495,8 +1494,8 @@ function textFlag(options) {
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white">
 				<!-- <div class="this-div" onclick="window.location.href='pdf.html'" target="top">\醉后不知天在水 &nbsp; &nbsp; </br > </br > &nbsp; &nbsp; 满船清梦压星河\</div> -->
-				<a class="this-div3" href="pdf.html" target="top">\野花吐芳不择地</br > &nbsp; &nbsp;幽草吹馥宁只春</br > </br > </br >兹日纵为无事日</br >&nbsp;&nbsp;此身不是自由身\</a>
-				<!-- target属性用于控制链接网页打开的位置（相对于当前网页）。默认情况下，是刷新当前网页所在的窗口，加载新的页面。 -->
+				<a class="this-div3" href="pdf.html" >\野花吐芳不择地</br > &nbsp; &nbsp;幽草吹馥宁只春</br > </br > </br >兹日纵为无事日</br >&nbsp;&nbsp;此身不是自由身\</a>
+				<!-- target="top"属性用于控制链接网页打开的位置（相对于当前网页）。默认情况下，是刷新当前网页所在的窗口，加载新的页面。 -->
 				</p>
 				<br />
             </td>
@@ -1513,7 +1512,7 @@ function textFlag(options) {
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white" >  
 				<!-- 提前祝你新年快乐<a href="./newyear/newyear.html" title="" target="top">点我点我</a> -->
-				<a class="this-div3" href="newyear/newyear.html" target="top">\历添新岁月</br ><br /> &nbsp; &nbsp;春满旧山河\</br ></a>
+				<a class="this-div3" href="newyear/newyear.html" >\历添新岁月</br ><br /> &nbsp; &nbsp;春满旧山河\</br ></a>
 				<p>
             </td>
         </tr>
@@ -1797,8 +1796,8 @@ function textFlag(options) {
                           <style>
                             /* 图片的初始状态为隐藏 */
                             #image2 {
-                                width: 170px;
-                                height: 170px;
+                                width: 200px;
+                                height: 200px;
                                 border-radius: 5px;
                               opacity: 0;
                               position: absolute;
@@ -1906,8 +1905,8 @@ function textFlag(options) {
                         <img src="./img/QR抖音.png" alt="" id="image5">
                         <style>
                             #image5 {
-                           width: 170px;
-                           height: 170px;
+                           width: 200px;
+                           height: 200px;
                            border-radius: 50%;
                          opacity: 0;
                          position: absolute;
@@ -1926,7 +1925,7 @@ function textFlag(options) {
                                             3px 3px 0px #fe1955
                                 }
                         </style>
-                        <script src="./js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+                        <!-- <script src="./js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script> -->
                         <script>
                         var link5 = document.getElementById('link5');
                         var image5 = document.getElementById('image5');
