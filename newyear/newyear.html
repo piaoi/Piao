@@ -76,7 +76,7 @@
         </div>
         <div class="stage-container remove">
             <div class="page_two hide">
-                <div style="
+                <!-- <div style="
                 left: 50px;
                 top: 150px;
                 overflow: hidden;
@@ -85,9 +85,10 @@
                 padding:5px;
                 text-align:center;
                 font-size: 25px;
-                color: #fff;"> <span id="time"></span></p></div>
+                color: #fff;"> <span id="time"></span></div> -->
                 <div id="text" style="display:none;"> 
-                    <p>倒计时<br> <br>距离2024还有<br><br><br><br>
+                    <h style="font-size: xx-large;">元！旦！快！乐！</h>
+                    <!-- <p>倒计时<br> <br>距离<span id ="todayYear" ></span>还有<br><br><br><br> -->
                         <!-- <span id="time"></span></p><br> -->
                     <span id="text1"></span><br><br>祝所有的男生：<br>新年快乐、万事如意、诸事顺利、心想事成、天天开心、幸福美满<br>欢天喜地、财运亨通、吉祥如意、工作顺利、龙马精神、步步高升<br><br>祝女生：<br>多喝热水<br><br>🎇点击屏幕任意地方即可放烟花~🎇🎇🎇<br><br><br><span id="copyright"></span></p></div>
                     
@@ -107,7 +108,7 @@
                 bottom: 10%;
                 text-align: center;
                 border-radius: 50px;">回到主页</button></a>
-                <!-- onclick="window.open('https://www.bilibili.com/bangumi/play/ss34430?spm_id_from=333.337.0.0')" onclick="javascript:window.history.back(-1);" -->
+                <!--onclick="javascript:window.history.back(-1);"   onclick="window.open('../index.html')"  -->
             </div>
             
             
@@ -277,7 +278,7 @@ function start() {
     var diff2Minutes = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours) / minutes)
     var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes * minutes) / seconds)
      if(todayMonth==1){if(todayDate==1){document.getElementById("text1").innerHTML =  "现在是1月1日,祝你"+todayYear+"元旦快乐！"}}
-     else{document.getElementById("text1").innerHTML =  "提前祝你"+newYear+"元旦快乐"}
+     else{document.getElementById("text1").innerHTML =  "祝你"+newYear+"元旦快乐"}
      document.getElementById("time").innerHTML =  diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒"
 }
 </script>
