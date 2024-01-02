@@ -20,7 +20,7 @@
 </div>
   <div class="container">
     <h2>
-      <span>新年倒计时</span>
+      <span>新春倒计时</span>
       <div id="Year">NA</div>
     </h2>
     <div class="countdouwn">
@@ -34,7 +34,7 @@
     // 自动为下一年
     function newYear() {
       var Y = new Date().getFullYear() + 1
-      var newDay = Y + '/1/1 00:00:00'
+      var newDay = '2024' + '/2/10 00:00:00'
       // var newDay = Y + '/12/29 09:16:00'
       var countDate = new Date(newDay);
       var now = new Date().getTime()
@@ -57,7 +57,9 @@
       // func end
 
       // 显示的年
-      document.getElementById('Year').innerText = Y
+      document.getElementById('Year').innerText = Y - 1
+      // document.getElementById('Year').innerText = Y
+
 
       // 倒计时
       document.getElementById('day').innerText = d
@@ -76,7 +78,7 @@ if(d==0){
         if(m==0){
           if(s==11){
             // clearInterval(timer);
-            document.title = "正在跳转..."
+            document.title = "正在准备烟花..."
             window.location.href = "../WanderingEarth/index.html";
           }
         }
@@ -99,9 +101,6 @@ if(d==0){
     //     document.title = "正在跳转..."
     //     window.location.href = "https://baiguangsen.github.io/Piaopiao/";
     // }
-   
-
-
   </script>
 
 
