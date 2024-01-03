@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-8 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2024-01-03 11:10:37
+ * @LastEditTime: 2024-01-03 12:07:57
  * @FilePath: \IndexWeb\index.html
 -->
 
@@ -129,26 +129,7 @@
             plane.style.top= window.pageYOffset + vy+'px';
             count++;
         }
-        // 抖动效果
-        // function swing() {
-        //     if (count >= 100) {
-        //         if (direction) {
-        //             D++
-        //         }
-        //         else {
-        //             D--
-        //         }
-        //         if (D >= 15) {
-        //             direction = false
-        //         }
-        //         else if  (D <= -15) {
-        //             direction = true
-        //         }
-        //         plane.style.transform = `rotate(${deg + D}deg)`
-        //     }
-        // }
-        // let drawing = setInterval(draw,5)
-        // let swinging = setInterval(swing,10)
+   
         setInterval(draw, 5);
     </script>
 <!-- 侧边栏 -->
@@ -337,9 +318,9 @@
   <a href="./kururu/index.html">
     <img alt="" src="./img/logo-electron.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text" face="comic sans ms" >万恶之源-miHoYo</span></a><br>
 
-  <a href="https://pointerpointer.com/" target="_blank"><img alt="" src="./img/logo-apple-ar.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>永远指向你</a><br>
-  <a href="./apiao.html"><img alt="" src="./img/fitness-outline.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>可耐的阿飘~</a><br>
-  <a href="https://2017.makemepulse.com/" target="_blank"><img alt="" src="./img/bonfire-outline.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>优秀学习案例</a>
+  <a rel="noopener" href="https://pointerpointer.com/" target="_blank"><img alt="" src="./img/logo-apple-ar.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>永远指向你</a><br>
+  <a rel="noopener" href="./apiao.html"><img alt="" src="./img/fitness-outline.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>可耐的阿飘</a><br>
+  <a rel="noopener" href="https://2017.makemepulse.com/" target="_blank"><img alt="" src="./img/bonfire-outline.svg" style="float: left;width: 35px;height: 35px; margin-right: 30px;vertical-align: middle;background-color: #ffffffb6;border-radius: 50px;"><span class="icon-text"></span>优秀学习案例</a>
     <style>
     body {
       font-family: "Lato", sans-serif;
@@ -479,10 +460,7 @@
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/index.js"></script>
     </body>
-    <!-- <p style="font-size: large;color: white;">山野万万里，</p>
-  <p style="font-size: large;color: white;">余生路漫漫。</p> -->
-  <!-- <p  style="font-size: large;color: white;">日暮杯酒淡饭，</p> -->
-  <!-- <h2  style="color: white;">一半 一半。</h2> -->
+
   <p style="font-size: large;color: white;font-family: fangsong;">/&nbsp;休对故人思故国</p>
   <p style="font-size: large;color: white;font-family: fangsong;">&nbsp;&nbsp;且将新火试新茶</p>
   <h2  style="color: white;font-family: fangsong;font-size: x-large;">&nbsp; &nbsp;&nbsp; 诗酒趁年华 &nbsp;/</h2>
@@ -675,159 +653,9 @@
 		<!-- height: 100%;  --> */
 		position: relative;
 		z-index: 102;
-		}
-		
+		}	
 </style>
-
-<!-- <script>    //飘动光标
-// Text Flag
-// via http://www.javascript-fx.com/mouse_trail/index.html (200X)
-// via fun24.com (defunct, 199X)
-
-function textFlag(options) {
-  let cursorOptions = options || {};
-  let hasWrapperEl = options && options.element;
-  let element = hasWrapperEl || document.body;
-  let text = cursorOptions.text ? " " + options.text : " Your Text Here";
-  let font = cursorOptions.font || "monospace";
-  let textSize = cursorOptions.textSize || 22;
-  let fontFamily = textSize + "px " + font;
-  let gap = cursorOptions.gap || textSize + 2;
-  let angle = 0;
-  let radiusX = 2;
-  let radiusY = 5;
-  let charArray = [];
-  let width = window.innerWidth;
-  let height = window.innerHeight;
-  let cursor = { x: width / 2, y: width / 2 };
-  for (let i = 0; i < text.length; i++) {
-    charArray[i] = { letter: text.charAt(i), x: width / 2, y: width / 2 };
-  }
-  let canvas, context, animationFrame;
-  const size = options?.size || 3;
-  let cursorsInitted = false;
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  );
-  // Re-initialise or destroy the cursor when the prefers-reduced-motion setting changes
-  prefersReducedMotion.onchange = () => {
-    if (prefersReducedMotion.matches) {
-      destroy();
-    } else {
-      init();
-    }
-  };
-
-  function init() {
-    // Don't show the cursor trail if the user has prefers-reduced-motion enabled
-    if (prefersReducedMotion.matches) {
-      console.log(
-        "This browser has prefers reduced motion turned on, so the cursor did not init"
-      );
-      return false;
-    }
-
-    canvas = document.createElement("canvas");
-    context = canvas.getContext("2d");
-    canvas.style.top = "0px";
-    canvas.style.left = "0px";
-    canvas.style.pointerEvents = "none";
-
-    if (hasWrapperEl) {
-      canvas.style.position = "absolute";
-      element.appendChild(canvas);
-      canvas.width = element.clientWidth;
-      canvas.height = element.clientHeight;
-    } else {
-      canvas.style.position = "fixed";
-      document.body.appendChild(canvas);
-      canvas.width = width;
-      canvas.height = height;
-    }
-
-    bindEvents();
-    loop();
-  }
-
-  // Bind events that are needed
-  function bindEvents() {
-    element.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("resize", onWindowResize);
-  }
-
-  function onWindowResize(e) {
-    width = window.innerWidth;
-    height = window.innerHeight;
-
-    if (hasWrapperEl) {
-      canvas.width = element.clientWidth;
-      canvas.height = element.clientHeight;
-    } else {
-      canvas.width = width;
-      canvas.height = height;
-    }
-  }
-
-  function onMouseMove(e) {
-    if (hasWrapperEl) {
-      const boundingRect = element.getBoundingClientRect();
-      cursor.x = e.clientX - boundingRect.left;
-      cursor.y = e.clientY - boundingRect.top;
-    } else {
-      cursor.x = e.clientX;
-      cursor.y = e.clientY;
-    }
-  }
-
-  function updateParticles() {
-    context.clearRect(0, 0, width, height);
-
-    angle += 0.15;
-    let locX = radiusX * Math.cos(angle);
-    let locY = radiusY * Math.sin(angle);
-
-    for (let i = charArray.length - 1; i > 0; i--) {
-      charArray[i].x = charArray[i - 1].x + gap;
-      charArray[i].y = charArray[i - 1].y;
-      context.font = fontFamily;
-	  
-	  	  context.fillStyle = "white";  //鼠标文本颜色
-	  
-      context.fillText(charArray[i].letter, charArray[i].x, charArray[i].y);
-    }
-
-    let x1 = charArray[0].x;
-    let y1 = charArray[0].y;
-    x1 += (cursor.x - x1) / 5 + locX + 2;
-    y1 += (cursor.y - y1) / 5 + locY;
-    charArray[0].x = x1;
-    charArray[0].y = y1;
-  }
-
-  function loop() {
-    updateParticles();
-    animationFrame = requestAnimationFrame(loop);
-  }
-
-  function destroy() {
-    canvas.remove();
-    cancelAnimationFrame(animationFrame);
-    element.removeEventListener("mousemove", onMouseMove);
-    window.addEventListener("resize", onWindowResize);
-  }
-
-  init();
-
-  return {
-    destroy: destroy,
-  };
-}
-</script> -->
 </head>
-
-<!-- 标题栏背景音乐的制作 -->	
-<!-- <audio src="music/晴天-周杰伦.mp3" autoplay="autoplay" controls="controls" loop="loop" preload="auto" ></audio> -->
-
 
 <table width="100%"  >
 <body class="cursor">
@@ -836,9 +664,7 @@ function textFlag(options) {
 
     </div>
     <link rel="stylesheet" href="./css/80.css">
-	 <!-- <script>  //鼠标样式
-	new textFlag({ element: document.querySelector("#textFlag"), text: '飘飘 飘啊飘啊飘啊飘啊飘' })
-	</script> -->
+
     <script>
         (function () {
             let starsCount = 520; //星星数量
@@ -905,7 +731,7 @@ function textFlag(options) {
                                <!-- 获取.text标签 -->
                             const texttype = document.querySelector('.texttype');
                             //  <!-- 定义数组，里面放上文本 -->
-                            const txt  =["亻尔女子，我是木白广木林。","欢→迎↗光↑临↓ ↑","⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉"]; 
+                            const txt  =["亻尔女子，我是木白广木林。","欢→迎↗光↑临↓↑","⎛⎝𝘽𝙮⎠⎞ ✨𝘽𝘼𝙄𝙂𝙐𝘼𝙉𝙂𝙎𝙀𝙉"]; 
                             // <!-- 定义当前要显示的字符串的第几个字符 -->
                             var index=0;
                             // <!-- 定义文本数组的下标 -->
@@ -1121,14 +947,14 @@ function textFlag(options) {
                 <div class="item" style="background-image: url(./img/5.jpg);">
                     <div class="content">
                         <div class="name">以心为剑</div>
-                        <div class="des">满堂花醉三千客，一剑霜寒十四州。</div>
+                        <div class="des">满堂花醉三千客,一剑霜寒十四州。</div>
                         <!-- <button>See more</button> -->
                     </div>
                 </div>
                 <div class="item" style="background-image: url(./img/6.jpg);">
                     <div class="content">
                         <div class="name">月照万川</div>
-                        <div class="des">万一禅关砉然破，美人如玉剑如虹。</div>
+                        <div class="des">万一禅关砉然破,美人如玉剑如虹。</div>
                         <!-- <button>See more</button> -->
                     </div>
                 </div>
@@ -1333,22 +1159,9 @@ function textFlag(options) {
         var box = document.getElementById("box");
         var timer;
 
-        // <!-- function showImage() { -->
-        //     <!-- setTimeout(function() { -->
-        //     <!-- box.classList.add("show"); -->
-        // <!-- }, 3000); -->
-        // <!-- } -->
-
-        // <!-- setTimeout(function() { -->
-        //     <!-- box.classList.add("show"); -->
-        // <!-- }, 6000); -->
-
         // <!-- 鼠标点击隐藏图片 -->
         box.addEventListener("click", function() {
             box.classList.remove("show");
-            // <!-- setTimeout(function() { -->
-            //     <!-- box.classList.add("show"); -->
-            // <!-- }, 6000); -->
         });
         
         // <!-- 鼠标离开后计时器计时，完毕加载图片 -->
@@ -1458,8 +1271,6 @@ function textFlag(options) {
         }
     </script>
 </div>
-
-
 	
     <!--个人特长段-->
 	<div id="grtc">
@@ -1567,7 +1378,6 @@ function textFlag(options) {
         <tr>
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white">
-				<!-- <div class="this-div" onclick="window.location.href='pdf.html'" target="top">\醉后不知天在水 &nbsp; &nbsp; </br > </br > &nbsp; &nbsp; 满船清梦压星河\</div> -->
 				<a class="this-div3" href="pdf.html" >\野花吐芳不择地</br > &nbsp; &nbsp;幽草吹馥宁只春</br > </br > </br >兹日纵为无事日</br >&nbsp;&nbsp;此身不是自由身\</a>
 				<!-- target="top"属性用于控制链接网页打开的位置（相对于当前网页）。默认情况下，是刷新当前网页所在的窗口，加载新的页面。 -->
 				</p>
@@ -2179,12 +1989,10 @@ function textFlag(options) {
 
         show_date_time();
     </script>
-				</p>
-
-            <!-- <p  align="center" style="color:white">
+            <p  align="center" style="color:white">
             <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             总访问量 <span id="busuanzi_value_site_pv"></span> views. 您是我的第 <span id="busuanzi_value_site_uv"></span> 个小伙伴!
-            </p> -->
+            </p>
 <style>
 .cover-bg::before{content:'';position:absolute;top:0;bottom:0;left:0;right:0;z-index:3;background-attachment:fixed;background-image:url(./img/grid.png)}
 .cover-bg.fixed{background-attachment: fixed;background-size: cover;background-position: center center;}
@@ -2448,8 +2256,6 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
             | 
             <a style="display:inline-block;" href="https://www.foreverblog.cn/" target="_blank" rel="noopener"><img src="./img/logo2.gif" alt="" style="width:auto;height:25px;border-radius: 10px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
         </div>
-        <!-- 点击后打开新的tab页，神奇的发现原tab页已经变成了谷歌页面。原因是使用target=_blank打开新的窗口时，赋予了新的窗口一些权限可以操作原tab页，其中window.location就是一个。不使用 rel=noopener就是让用户暴露在钓鱼攻击上。 -->
-            <!-- <a href="https://foreverblog.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/tp.gif" alt="探索虫洞" width="120"></a> -->
         </div>
     </div>
             </td>
@@ -2458,6 +2264,5 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
 </div>
 
 <!-- <footer> -->
-    <!-- <div  class="icon-text"><iframe title="Github" src="./img/logo-github.svg"></iframe></div>  -->
 
 <!-- </footer> -->
