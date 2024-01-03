@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-8 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2024-01-02 16:47:44
+ * @LastEditTime: 2024-01-03 11:10:37
  * @FilePath: \IndexWeb\index.html
 -->
 
@@ -78,8 +78,8 @@
 
     </script>
     
-    <div id="plane">        
-        <i  ><img alt="" class="planes" src="./img/plane.png"></i>
+    <div>        
+        <i  id="plane" ><img  alt="" class="planes" src="./img/plane.png"></i>
     </div>
     <style>
          .planes{
@@ -87,6 +87,8 @@
             height: 30px;
             animation: float 4s ease-in-out infinite;
             z-index: 110;
+            pointer-events: none; 
+            /* 禁止图片接收鼠标事件 */
         }
         /* 漂浮效果 */
         @keyframes float {
@@ -94,7 +96,7 @@
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(-30px);
+                transform: translateY(-20px);
             }
             100% {
                 transform: translateY(0px);
@@ -102,13 +104,14 @@
         }
     </style>
     <script>
+        // event.stopPropagation();
         let plane=document.getElementById('plane');
         let deg=0,ex=0,ey=0,vx=0,vy=0,count=0,direction=true,D=0;
     
         window.addEventListener('mousemove',(e)=>{
-            ex= window.pageXOffset + e.x - plane.offsetLeft - plane.clientWidth / 2;
-            ey= window.pageYOffset + e.y - plane.offsetTop - plane.clientHeight / 2;
-            deg=360*Math.atan(ey/ex)/(2*Math.PI)+75;
+            ex= window.pageXOffset + e.x - plane.offsetLeft - plane.clientWidth - 10;
+            ey= window.pageYOffset + e.y - plane.offsetTop - plane.clientHeight + 16 ;
+            deg=360*Math.atan(ey/ex)/(2*Math.PI)+45;
             if(ex<0){
                 deg+=180;
             }
@@ -118,9 +121,9 @@
         })
         function draw(){
             plane.style.transform='rotate('+deg+'deg)';
-            if(count<50){
-                vx+=ex/50;
-                vy+=ey/50;
+            if(count<40){
+                vx+=ex/40;
+                vy+=ey/40;
             }
             plane.style.left= window.pageXOffset + vx+'px';
             plane.style.top= window.pageYOffset + vy+'px';
@@ -2096,7 +2099,7 @@ function textFlag(options) {
                               <img alt="" src="./img/bilibili.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
                             </div>
                             <!-- <span>Twitter</span> -->
-                            <a id="link7" style="font-size: large;" href="https://space.bilibili.com/15214084" target="_blank">Bilibili</a>
+                            <a id="link7" style="font-size: large;" rel="noopener" href="https://space.bilibili.com/15214084" target="_blank">Bilibili</a>
                             <img src="./img/level_6.png" alt="" id="image7">
                             <style>
                               /* 图片的初始状态为隐藏 */
