@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-8 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2024-01-03 12:07:57
+ * @LastEditTime: 2024-01-05 16:01:07
  * @FilePath: \IndexWeb\index.html
 -->
 
@@ -106,7 +106,7 @@
     <script>
         // event.stopPropagation();
         let plane=document.getElementById('plane');
-        let deg=0,ex=0,ey=0,vx=0,vy=0,count=0,direction=true,D=0;
+        let deg=0,ex=0,ey=0,vx=0,vy=0,count=0;
     
         window.addEventListener('mousemove',(e)=>{
             ex= window.pageXOffset + e.x - plane.offsetLeft - plane.clientWidth - 10;
@@ -116,14 +116,12 @@
                 deg+=180;
             }
             count=0;
-            // direction = true
-            // D = 0
         })
         function draw(){
             plane.style.transform='rotate('+deg+'deg)';
-            if(count<40){
-                vx+=ex/40;
-                vy+=ey/40;
+            if(count<75){
+                vx+=ex/75;
+                vy+=ey/75;
             }
             plane.style.left= window.pageXOffset + vx+'px';
             plane.style.top= window.pageYOffset + vy+'px';
@@ -469,46 +467,6 @@
 
 <!-- 回到顶部按钮 -->
 	<style>
-		
-		/*火箭动态效果*/
-		 .com {
-		  background-image: url("./img/top.png");
-		  position: fixed;
-		  top: 80%;
-		  right: 1%;
-		  width: 150px;
-		  height: 175px;
-		  border-radius: 100%;
-		  display: none;  /*按照距离隐藏*/
-		  z-index: 99;     
-          /* <!-- 立体度 --> */
-    }
-    .com:hover {
-      animation: fly .6s steps(1) infinite; 
-      background-image: url("./img/blbl.png");
-    }
-    @keyframes fly {
-      0% {
-        background-position-x: 0;
-      }
-      
-      25% {
-        background-position-x: -150px;
-      }
-     
-      50% {
-        background-position-x: -300px;
-      }
-      
-      75% {
-        background-position-x: -4500px;
-      }
-      
-      to {
-        background-position-x: -600px;
-      }
-    }
-
 			<!--导航栏-->
 			li,ul,a,div{
                 
@@ -916,11 +874,26 @@
             <div id="slide">
                 <div class="item" style="background-image: url(./img/1.jpg);">
                     <div class="content">
-                        <div class="des">“怎么会怪你呢”</div>
-                    </br> 
-                        <div class="name">“真没礼貌，我们可是纯爱啊”</div>
+                        <div class="name" style="color: #000000;">谨防诈骗</div>
+                        <div class="des" style="color: #000000;padding-left: 10px;">“我有一个朋友，她非常善良。”</div>
                         </br>
-                        <button onclick="window.open('https://www.bilibili.com/bangumi/play/ss34430?spm_id_from=333.337.0.0')">See more</button>
+                        <button onclick="window.open('https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.788.recommend_more_video.-1&vd_source=d6c02133079fe1c34dfbb021bc307b73') " class="but">See more</button>
+                        <style>
+                            .but{
+                                background-color:#656565;
+                                color:white;
+                                width: 100px;
+                                height: 45px;
+                                border:0;
+                                font-size: 16px;
+                                box-sizing: content-box;
+                                border-radius: 5px;
+                                margin-left: 250px;
+                                }
+                                button:hover{
+                                background-color: #840200;
+                                }
+                        </style>
                     </div>
                 </div>
                 <div class="item" style="background-image: url(./img/2.jpg);">
@@ -1244,7 +1217,46 @@
 
 <!-- 回到顶部按钮 -->
 <div class="com" title="点击回到顶部">
-
+    <style>
+        /*火箭动态效果*/
+		 .com {
+		  background-image: url("./img/top.png");
+		  position: fixed;
+		  top: 80%;
+		  right: 1%;
+		  width: 150px;
+		  height: 175px;
+		  border-radius: 100%;
+		  display: none;  /*按照距离隐藏*/
+		  z-index: 99;     
+          /* <!-- 立体度 --> */
+    }
+    .com:hover {
+      animation: fly .6s steps(1) infinite; 
+      background-image: url("./img/blbl.png");
+    }
+    @keyframes fly {
+      0% {
+        background-position-x: 0;
+      }
+      
+      25% {
+        background-position-x: -150px;
+      }
+     
+      50% {
+        background-position-x: -300px;
+      }
+      
+      75% {
+        background-position-x: -4500px;
+      }
+      
+      to {
+        background-position-x: -600px;
+      }
+    }
+    </style>
     <script>
         //1.获取元素
         var com = document.querySelector('.com')
@@ -1254,7 +1266,7 @@
             var height = document.documentElement.scrollTop || document.body.scrollTop
     
             //2-2. 判断卷去的高度
-            if(height >= 800){
+            if(height >= 1200){
                 //显示
                 com.style.display = 'block'
             }else {
@@ -1998,7 +2010,7 @@
 .cover-bg.fixed{background-attachment: fixed;background-size: cover;background-position: center center;}
 a.post-feature-image{box-shadow: 4px 4px 10px 0px #0008;transition: transform 1s ease 0s;}
 a.post-feature-image:hover {transform: scale(1.2,1.2);}
-.tools-btns{position:fixed;bottom:40px;right:40px;height:40px;width:40px;text-align:center;font-size:0.6rem;color:#FB7299;visibility:visible;z-index:999;}.tools-btns>div{cursor:pointer;transition:all 0.5s;background:#6666;border-radius:25px;}.site-main.no-bg::after{opacity:0!important;}
+.tools-btns{position:fixed;bottom:40px;right:40px;height:40px;width:40px;text-align:center;font-size:0.6rem;color:#FB7299;visibility:visible;z-index:9;}.tools-btns>div{cursor:pointer;transition:all 0.5s;background:#6666;border-radius:25px;}.site-main.no-bg::after{opacity:0!important;}
 .anime-face {
     animation: anime-face 5s infinite ease-in-out;
     display: inline-block;
