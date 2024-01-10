@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-8 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2024-01-09 10:20:55
+ * @LastEditTime: 2024-01-10 20:06:35
  * @FilePath: \IndexWeb\index.html
 -->
 
@@ -12,7 +12,7 @@
     <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control,X-UA-Compatible" content="ie=edge,no-cache, no-store, must-revalidate" />
+    
 
     <!-- 音乐播放器样式 -->
     <link rel="stylesheet" href="font/iconfont.css">
@@ -410,6 +410,7 @@
 
     
 <!-- 音乐播放器样式 -->
+
 <div id="main">
     <body >
         <div id="player">
@@ -469,100 +470,7 @@
 
 <!-- 回到顶部按钮 -->
 	<style>
-			<!--导航栏-->
-			li,ul,a,div{
-                
-				border: 0;
-				list-style: none;
-				z-index: 0;
-			}
-			
-			div{
-                
-				display: block;
-				z-index: 0;
-			}
-			
-			a{
-				color: #333333;
-				text-decoration: none;
-				outline: none;
-				z-index: 0;
-			}
-			
-			em{
-				font-weight: normal;
-				z-index: 0;
-			}
-			.ue-bar{
-				background-color: #000000;
-				opacity:0.8;   
-				position: sticky;   
-				top: 0;				 /*吸顶效果*/
-				z-index: 0;
-			}
-			.ue-bar-wrap{
-				width: 61.25rem;
-				height: 4.375rem;
-				margin: 0 auto;
-				overflow: hidden;
-				position: relative;
-				z-index: 0;
-			}
-			.ue-bar-logo{
-				width: 8.375rem ;
-				height: 3.125rem;
-				float: left;
-				padding-right: 0.625rem;
-				padding-top: 0.5rem;
-				z-index: 0;
-			}
-			.ue-bar-logo a{
-				display: inline-block;
-				width: 100%;
-				height: 100px;
-				margin-top: 12px;
-				z-index: 0;
-			}
-			
-			.ue-bar-nav{
-				height: 100px;
-				float: left;
-				z-index: 0;
-			}
-			
-			.ue-bar-nav li{
-				height: 100px;
-				float: left;
-				margin-right: 20px;
-				z-index: 0;
-			}
-			
-			.ue-bar-nav li *{
-				color: #dadada;
-				font-size: 14px;
-				display: inline-block;
-				line-height: 17px;
-				vertical-align: top;
-				z-index: 0;
-			}
-			
-			.ue-bar-nav li a{
-				height: 12px;
-				line-height: 22px;
-				padding: 13px 9px;
-				z-index: 0;
-			}
-			
-			.ue-bar-nav li.active{
-				background: #333;
-				z-index: 0;
-			}
-			
-			.ue-bar-nav li a:hover{
-				background: #333;
-				z-index: 0;
-			}
+
 			
 			/*星星特效背景*/
 			body {
@@ -765,6 +673,7 @@
         background-color: #000000;
         border-radius: 90px;
         box-shadow: 0 30px 50px #dbdbdb;
+        
     }
     #slide{
        
@@ -940,6 +849,8 @@
             </div>
         </div>
         <script>
+            document.documentElement.style.overflowX = "hidden";
+            // 太强了！隐藏x轴滚动条
             document.getElementById('next').onclick = function(){
                 let lists = document.querySelectorAll('.item');
                 document.getElementById('slide').appendChild(lists[0]);
@@ -1143,7 +1054,7 @@
         document.addEventListener("mouseleave", function() {
             setTimeout(function() {
             box.classList.add("show");
-        }, 120000);
+        }, 180000);
         }
 		);
         
@@ -1177,43 +1088,24 @@
     </div>
 
 <!--导航栏-->
-<div class="ue-bar">
-			<div class="ue-bar-wrap">
-				<div class="ue-bar-logo"><img src="./img/h.jpg"  alt="" title="Hello World" style="height: 65px;width: 65px;border-radius: 30px;position: relative;display: inline-flex; align-items:center;"/></div>
-				<div class="ue-bar-nav">
-					<ul>
-						<li class="active" ><a href="#">
-							<em >首页</em></a></li>
-						<li><a href="#grtc">
-							<em>个人特长</em></a></li>
-							
-						<li><a href="#am">
-							<em>关于本人</em></a></li>
-							
-						<li><a href="#ml">
-							<em>My Life</em></a></li>
-							
-						<li><a href="#jlwj">
-							<em>简历文件</em></a></li>
-							
-						<li><a href="#xlkl">
-							<em>拜个早年</em></a></li>
-							
-						<li><a href="#404">
-							<em>404</em></a></li>
-							
-						<li><a href="#bjxs">
-							<em>灿灿星河</em></a></li>
-							<em></em></a></li>
-							
-						<li><a href="#dqxmb">
-							<em>当前小目标</em></a></li>
-							
-							
-					</ul>
-				</div>
-			</div>
-		</div>
+<link rel="stylesheet" href="./css/dhl.css">
+<div id="a0"></div>
+<div class="header">
+    <nav id="navbar">
+        <img alt="" src="img/h.png" class="logo">  
+        <ul id="menu">
+            <li ><a id="a00" href="#a0" class="smooth na"><em >首页</em></a></li>
+            <li ><a id="a11" href="#a1" class="smooth"><em >个人特长</em></a></li>
+            <li ><a id="a22" href="#a2" class="smooth"><em >关于本人</em></a></li>
+            <li ><a id="a33" href="#a3" class="smooth"><em >My Life</em></a></li>
+            <li ><a id="a44" href="#a4" class="smooth"><em >简历文件</em></a></li>
+            <li ><a id="a55" href="#a5" class="smooth"><em >拜个早年</em></a></li>
+            <li ><a id="a66" href="#a6" class="smooth"><em >404</em></a></li>
+            <li ><a id="a77" href="#a7" class="smooth"><em >灿灿星河</em></a></li>
+            <li ><a id="a88" href="#a8" class="smooth"><em >当前小目标</em></a></li>
+        </ul>
+    </nav>
+</div>
 
 </html>
 
@@ -1259,35 +1151,64 @@
       }
     }
     </style>
-    <script>
+		<!-- <script src="./js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script> -->
+    	<script src="./js/jquery.anchor.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+        var navbar = document.getElementById("navbar");
+        var menu = document.getElementById("menu");
         //1.获取元素
         var com = document.querySelector('.com')
-        //2.绑定滚动事件
-        window.onscroll = function () {
+         //2.绑定滚动事件
+        $(function() {
+				$(window).scroll(function() {
+            // 默认一个页面只能同时存在一个window.onscroll函数。
             //2-1.获取浏览器卷去的高度
             var height = document.documentElement.scrollTop || document.body.scrollTop
-    
             //2-2. 判断卷去的高度
-            if(height >= 1200){
+            // if( window.pageYOffset >= menu.offsetTop){
+                // 返回失效
+            if( height >= 2150 ){
                 //显示
-                com.style.display = 'block'
-            }else {
-                //隐藏
-                com.style.display = 'none'
+                navbar.classList.add("sticky");
+                com.style.display = 'block';
+                // console.log(height)
             }
-        }
-        //3.绑定点击事件
-        com.onclick = function () {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            })
-        }
+            else {
+                //隐藏
+                navbar.classList.remove("sticky");
+                com.style.display = 'none';
+                // console.log(height)
+            }
+            //3.绑定点击事件
+            com.onclick = function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+            }
+					//为页面添加页面滚动监听事件
+					var wst = $(window).scrollTop() + 250 //滚动条距离顶端值,增加容错率
+					for (i = 0; i < 9; i++) { //加循环
+						if ($("#a" + i).offset().top <= wst) { //判断滚动条位置
+							$('#navbar a').removeClass("na"); //清除c类
+							$("#a" + i + i).addClass("na"); //给当前导航加c类
+						}
+					}
+				})
+				$('#navbar a').click(function() {
+					$('#navbar a').removeClass("na");
+					$(this).addClass("na");
+				});
+			});
+			$(".smooth").zxxAnchor({
+				anchortag: "href"
+			});
+            
     </script>
 </div>
 	
     <!--个人特长段-->
-	<div id="grtc">
+	<div id="a1">
     <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
         <tr><th>
 		<font face="comic sans ms" color="white" size="9"><strong>个人特长</strong></font></th></tr><br />
@@ -1303,7 +1224,7 @@
 	</div>
 	
     <!--About Me段-->
-	<div id="am">
+	<div id="a2">
     <table width="100%" cellspacing="20px" cellpadding="20px" align="center">
         <tr align="center">
             <td><br /><br /><br />
@@ -1362,7 +1283,7 @@
 	</div>
 	
     <!--My life段-->
-	<div id="ml">
+	<div id="a3">
     <table width="100%" cellspacing="20px" cellpadding="20px" align="center">
         <tr align="center">
             <td><br /><br /><br />
@@ -1386,7 +1307,7 @@
 	
 	
 <!--简历文件-->
-	<div id="jlwj">
+	<div id="a4">
     <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
         <tr><th><font face="comic sans ms" color="white" size="9"><strong>简历预览</strong></font></th></tr><br />
         <tr>
@@ -1403,7 +1324,7 @@
 	
 	
 <!--新年快乐-->
-	<div id="xlkl">
+	<div id="a5">
     <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
         <tr><th><font face="comic sans ms" color="white" size="9"><strong>辞暮尔尔，烟火年年</strong><br /><strong>朝朝夕夕，岁岁平安<br /></strong></font></th></tr><br />
         <tr>
@@ -1418,7 +1339,7 @@
 	</div>
 	
 <!--404-->
-	<div id="404">
+	<div id="a6">
     <table width="100%" cellspacing="20px" cellpadding="20px" align="center"><br /><br />
         <tr><th><font face="comic sans ms" color="white" size="9"><strong>404 NOT FOUND!</strong></font></th></tr><br />
         <tr>
@@ -1473,7 +1394,7 @@
 	
 	
 <!--背景欣赏-->
-<div id="bjxs">
+<div id="a7">
     <table height="1500px" ><br /><br />
 <div class="this-div" >\醉后不知天在水 &nbsp; &nbsp; </br > </br > &nbsp; &nbsp; 满船清梦压星河\</div>
 <style>
@@ -1514,7 +1435,7 @@
 	</div>
 	
     <!-- 底栏 -->
-<div id="dqxmb">
+<div id="a8">
     <table width="100%"  height="300px" bgcolor="black" cellpadding="6px"  style="opacity:0.8;z-index: -1;";>
         <tr>
             <td>
