@@ -12,24 +12,29 @@
 </head>
 
 <body>
-  <div id='clock-surface' style="z-index: 10;" ><a href="../index.html"><img
+  
+<section>
+  <div id='clock-surface' style="z-index: 10;" ><a href="../"><img
     src="../img/arrow-back-circle-outline.svg"
     alt=""
     height="100px"
     width="100px" style="margin-left: 150px; display: flex;border-radius: 50%;height:50px;width:50px;background-color: #ffffffc7;backdrop-filter:blur(50px);" ></a>
 </div>
-  <div class="container">
-    <h2>
-      <span>新春倒计时</span>
-      <div id="Year">NA</div>
+<img src="./images/bg.jpg" data-speed='-1'  class="layer" alt="" style="height:100%;">
+ <div class="container">
+   <h2> 
+      <span data-speed='-2' class="layer">新春倒计时</span>
+      <div id="Year" data-speed='1' class="layer">NA</div>
     </h2>
-    <div class="countdouwn">
+    <div class="countdouwn layer" data-speed='2' >
       <div id="day">NA</div>
       <div id="hour">NA</div>
       <div id="minute">NA</div>
       <div id="second">NA</div>
     </div>
   </div>
+</section>
+
   <script>
     // 自动为下一年
     function newYear() {
@@ -101,6 +106,17 @@ if(d==0){
     //     document.title = "正在跳转..."
     //     window.location.href = "https://baiguangsen.github.io/Piaopiao/";
     // }
+
+    // 偏移效果
+    document.addEventListener('mousemove', parallax);
+    function parallax(e) {
+        this.querySelectorAll('.layer').forEach(layer => {
+            const speed = layer.getAttribute('data-speed')
+            const x = (window.innerWidth - e.pageX * speed) / 100 - 20
+            const y = (window.innerHeight - e.pageY * speed) / 100 - 10
+            layer.style.transform = `translateX(${x}px) translateY(${y}px)`
+        })
+    }
   </script>
 
 
