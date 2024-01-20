@@ -2,7 +2,7 @@
  * @Author: 木白广木林
  * @Date: 2023-12-8 15:15:14
  * @LastEditors: Do not edit
- * @LastEditTime: 2024-01-12 14:31:14
+ * @LastEditTime: 2024-01-20 12:43:04
  * @FilePath: \IndexWeb\index.html
 -->
 
@@ -13,11 +13,9 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-
     <!-- 音乐播放器样式 -->
     <link rel="stylesheet" href="font/iconfont.css">
     <link rel="stylesheet" href="css/style.css">
-
 
 	<!-- 网页标题改变 -->
 	<script>document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='别走嘛，我会想你的';}else{document.title='回来啦！爱你哟~'}});</script>
@@ -25,11 +23,9 @@
     
     <script src="./js/jquery-3.4.1.min.js"></script>
     
-
 	<!-- 网页标题图标 -->
 	<!-- 如果放在body之内是无效的要放在<body>之前 -->
 	<link rel="icon" type="image/x-icon" href="./img/gf.png" />
-
 
     <!-- 加载页面 -->
     <link rel="stylesheet" href="./css/loader.css">
@@ -143,12 +139,12 @@
 
         #clock-surface {
             position: relative;
-            /* margin-left: 5px; */
+            margin-left: 45px;
             top: 15px;
             /* left: 45px; */
             padding-bottom: 35px;
             /* width: 100%; */
-            /* text-align:left; */
+            text-align:left;
         }
 
         .nixie-container {
@@ -467,7 +463,7 @@
 
 <!-- 回到顶部按钮 -->
 	<style>
-			
+		
 			/*星星特效背景*/
 		body {
             background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
@@ -575,7 +571,7 @@
                             height: 80px;
                             width: 5px;     
                             background-color: #fff;
-                            animation: san 1.5s steps(15) infinite;
+                            animation: san 1.5s steps(30) infinite;
                         }
                         @keyframes san{
                             0%,100%{
@@ -1329,7 +1325,7 @@
             <td align="center">
                 <p align="center" ><font size="6" face="楷体" color="white" >  
 				<!-- 提前祝你新年快乐<a href="./newyear/newyear.html" title="" target="top">点我点我</a> -->
-				<a class="this-div3" href="./CountDown" >\历添新岁月</br ><br /> &nbsp; &nbsp;&nbsp;&nbsp;春满旧山河\</br ></a>
+				<a class="this-div3" href="./CountDown/" >\历添新岁月</br ><br /> &nbsp; &nbsp;&nbsp;&nbsp;春满旧山河\</br ></a>
 				<p>
             </td>
         </tr>
@@ -1433,8 +1429,8 @@
 	</div>
 	
     <!-- 底栏 -->
-<div id="a8">
-    <table width="100%"  height="300px" bgcolor="black"  style="opacity:0.85;z-index: -1;";>
+<div id="a8" style="margin-bottom: 0;">
+    <table width="100%"  height="300px" bgcolor="black"  style="opacity:0.85;z-index: -1;margin-bottom: 0;">
         <tr>
             <td>
                 <p align="center" ><font size="7" face="SimSun" color="white">男儿若无凌云志，空负八尺顶天躯</font></p><br /><br />
@@ -1443,12 +1439,11 @@
 				<p align="center" ><font size="4" face="comic sans ms" color="white" style="text-decoration: line-through">全款买下兰博基尼跑车一辆</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9745 &nbsp; 已完成</font></p>
 				<p align="center" ><font size="4" face="comic sans ms" color="white" >改掉吹牛逼的习惯</font><font size="4" face="comic sans ms" color="white">&nbsp; &nbsp; &nbsp; &#9746 &nbsp; 未完成</font></p><br />
 
-
                 <!-- 手风琴按钮 -->
                 <div style="display: flex;
                 justify-content: center;
                 align-items: center;">
-                    <style>
+                <style>
               .wrapperaa .buttonaa{
                 display: inline-block;
                 height: 60px;
@@ -1558,7 +1553,7 @@
               } */
                     </style>
 
-                    
+                    <!-- QQ -->
                     <div class="wrapperaa">
                        <div class="buttonaa">
                           <div class="iconaa"> 
@@ -1611,6 +1606,8 @@
                                 });
                             </script>
                        </div>
+
+                       <!-- 微信 -->
                        <div class="buttonaa">
                           <div class="iconaa">
                             <img alt="" src="./img/wechat.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
@@ -1621,8 +1618,8 @@
                           <style>
                             /* 图片的初始状态为隐藏 */
                             #image2 {
-                                width: 145px;
-                                height: 145px;
+                                width: 150px;
+                                height: 150px;
                                 border-radius: 5px;
                               opacity: 0;
                               position: absolute;
@@ -1662,6 +1659,8 @@
                             });
                         </script>
                        </div>
+
+                       <!-- 推特 -->
                        <div class="buttonaa">
                           <div class="iconaa">
                             <img alt="" src="./img/twitter.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
@@ -1670,7 +1669,6 @@
                           <a id="link3" style="font-size: large;">Twitter</a>
                           <!-- <img src="./img/QR推特.png" alt="" id="image3"> -->
                           <img src="" alt="" id="image3">
-
                           <style>
                             /* 图片的初始状态为隐藏 */
                             #image3 {
@@ -1716,6 +1714,7 @@
                         </script>
                        </div>
                        
+                       <!-- GitHub -->
                        <div class="buttonaa">
                           <div class="iconaa">
                             <img alt="" src="./img/github.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
@@ -1724,9 +1723,10 @@
                           <!-- <a href="https://github.com/baiguangsen" target="_blank" rel="noopener">Github</a> -->
                           <!-- 用target="_blank"就可以让新页面在另一个窗口打开。 -->
                        </div>
+
+                       <!-- 抖音 -->
                        <div class="buttonaa" >
                           <div class="iconaa">
-                            
                             <img  alt="" src="./img/tiktok.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
                             </div>
                         <!-- <span id="a">Tiktok</span> -->
@@ -1787,6 +1787,8 @@
                         });
                         </script>
                        </div>
+
+                       <!-- 支付宝 -->
                        <div class="buttonaa">
                           <div class="iconaa">
                             <img alt="" src="./img/alipay.svg" style="width: 45px;height: 45px;vertical-align: middle;margin-top: 7px;">
@@ -1797,8 +1799,8 @@
                           <style>
                             /* 图片的初始状态为隐藏 */
                             #image6 {
-                                width: 145px;
-                                height: 145px;
+                                width: 140px;
+                                height: 140px;
                                 border-radius: 10px;
                               opacity: 0;
                               position: absolute;
@@ -1838,6 +1840,7 @@
                             });
                         </script>
                        </div>
+
                         <!-- 哔哩哔哩 -->
                         <div class="buttonaa">
                             <div class="iconaa">
