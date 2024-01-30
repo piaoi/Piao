@@ -48,7 +48,9 @@
     /* background: url(../images/bg.jpg); */
     backdrop-filter: blur(50px);
     border-radius: 50px;
-    width: 50%;
+/*     width: 50%; */
+    width: 38%;
+    height: 35%;
     margin: 5% auto;
     padding: 5% 5%;
     background-attachment: fixed;
