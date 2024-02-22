@@ -48,8 +48,8 @@
     // 自动为下一年
     function newYear() {
       var Y = new Date().getFullYear() + 1
-      var newDay = '2024' + '/2/10 00:00:00'
-      // var newDay = Y + '/12/29 09:16:00'
+      // var newDay = '2024' + '/2/10 00:00:00'
+      var newDay = Y + '/12/31 23:59:59'
       var countDate = new Date(newDay);
       var now = new Date().getTime()
       gap = countDate - now;
@@ -71,8 +71,8 @@
       // func end
 
       // 显示的年
-      document.getElementById('Year').innerText = Y - 1
-      // document.getElementById('Year').innerText = Y
+      // document.getElementById('Year').innerText = Y - 1
+      document.getElementById('Year').innerText = Y
 
 
       // 倒计时
