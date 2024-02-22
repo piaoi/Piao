@@ -5,7 +5,9 @@
   font-family: "Poppins", sans-serif;
   /* background-color: #cfcfcf; */
 }
-@media screen and (min-width: 511px) {
+/* @media screen and (min-width: 511px) { */
+@media screen {
+  
   /* 改变宽度 */
   body {
     background: url("../images/bg.jpg");
