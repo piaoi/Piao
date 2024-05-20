@@ -1,9 +1,9 @@
 <!--
  * @Author: 木白广木林
  * @Date: 2023-12-8 15:15:14
- * @LastEditors: Do not edit
- * @LastEditTime: 2024-01-20 12:43:04
- * @FilePath: \IndexWeb\index.html
+ * @LastEditors: 木白广木林
+ * @LastEditTime: 2024-05-20 08:51:05
+ * @FilePath: \Index\index.html
 -->
 
 <!DOCTYPE html>
@@ -1930,7 +1930,6 @@
             <p  align="center" style="color:white">
             <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             /&nbsp;总访问量
-            <!-- <span><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7211" width="20" height="20"><path d="M565.2 521.9c76.2-23 132.1-97.6 132.1-186.2 0-106.9-81.3-193.5-181.6-193.5s-181.6 86.6-181.6 193.5c0 87.6 54.6 161.6 129.5 185.4-142.2 23.1-250.8 146.5-250.8 295.3 0 2.9 0 5.8 0.1 8.7 0.9 31.5 26.5 56.7 58.1 56.7h482.1c31.2 0 57-24.6 58-55.8 0.1-3.2 0.2-6.4 0.2-9.6-0.1-147.1-106.2-269.4-246.1-294.5z" p-id="7212"></path></svg></span> -->
             <span id="busuanzi_value_site_pv"></span> views.👀&nbsp;&nbsp;/&nbsp;/&nbsp;&nbsp;您是我的第 <span id="busuanzi_value_site_uv"></span> 个小伙伴!🥳&nbsp;/
             </p>
 <style>
@@ -2189,11 +2188,50 @@ a.post-feature-image:hover {transform: scale(1.2,1.2);}
 }
 </style>
         <div style="text-align: center;">
-             <a style="display:inline-block;" target="_blank" > <img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="width:auto;height:16px;"> </a>
+             <a class="mytooltip" style="display:inline-block;" target="_blank" > <img src="https://img.foreverblog.cn/logo_en_default.png" alt="" style="width:auto;height:16px;"> </a>
             |
-            <a style="display:inline-block;" href="https://www.travellings.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/logo1.gif" alt="开往-友链接力" width="100"></a>
+            <a class="mytooltip" style="display:inline-block;" href="https://www.travellings.cn/go.html" target="blank" title="开往-友链接力"><img src="./img/logo1.gif" alt="开往-友链接力" width="100"></a>
             | 
-            <a style="display:inline-block;" href="https://www.foreverblog.cn/" target="_blank" rel="noopener"><img src="./img/logo2.gif" alt="" style="width:auto;height:25px;border-radius: 10px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+            <a class="mytooltip" style="display:inline-block;" href="https://www.foreverblog.cn/" target="_blank" rel="noopener"  title="穿梭虫洞-随机访问十年之约友链博客"><img src="./img/logo2.gif" alt="" style="width:auto;height:25px;border-radius: 10px;"></a>
+            |
+            <a class="mytooltip" style="display:inline-block;"  target="blank" title="//拒绝 A·I "><img src="./img/ai.png"  width="100"></a>
+            <style>
+                 #mytitle {
+                    position: absolute;
+                    color: #ffffff;
+                    font-size: 14px;
+                    padding: 4px;
+                    background: rgba(40, 40, 40, 0.8);
+                    border-radius:5px;
+                    z-index:999;
+                }
+            </style>
+            <script>
+                $(function () {
+     
+     var newtitle = '';
+     $('a.mytooltip').mouseover(function (e) {
+         newtitle = this.title;
+         this.title = '';
+         if(newtitle != ''){
+             $('body').append('<div id="mytitle" >' + newtitle + '</div>');
+         }
+         $('#mytitle').css({
+             'left': (e.pageX + 'px'),
+             'top': (e.pageY + 'px')
+         }).show();
+     }).mouseout(function () {
+         this.title = newtitle;
+         $('#mytitle').remove();
+     }).mousemove(function (e) {
+         $('#mytitle').css({
+             'left': (e.pageX +10 + 'px'),
+             'top': (e.pageY +10+ 'px')
+         }).show();
+     })
+ });
+
+            </script>
         </div>
         </div>
     </div>
